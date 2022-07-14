@@ -1,0 +1,1268 @@
+/home/hushuwang/mahua
+alpha=0.2, batch_size=12, cuda=True, decay_epoch=20, dropout=0.5, epoch=200, log_file='./lstm', lr=0.0001, model_file='./data/model.pkl', nheads=2, nodeDataFile='./data/embeddings.emb', node_hid=16, node_in=32, node_out=32, node_raw=64, num_nodes=278, odDataFile='./data/od_tensor.npy', patience=20, seed=72, seq_len=6, timeDataFile='./data/dateFeature.csv', time_hid=256, time_in=33, time_out=1024, weight_decay=0.0
+loading data...
+(607, 6, 278, 278)
+10.067434360756522
+(199, 6, 278, 278)
+(199, 6, 278, 278)
+train data size: 607
+val data size: 199
+test data size: 199
+data loaded!
+cuda.device_count: 3
+Traceback (most recent call last):
+  File "train.py", line 120, in <module>
+    pred = model(edge_fea)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 158, in forward
+    inputs, kwargs = self.scatter(inputs, kwargs, self.device_ids)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/data_parallel.py", line 175, in scatter
+    return scatter_kwargs(inputs, kwargs, device_ids, dim=self.dim)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/scatter_gather.py", line 44, in scatter_kwargs
+    inputs = scatter(inputs, target_gpus, dim) if inputs else []
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/scatter_gather.py", line 36, in scatter
+    res = scatter_map(inputs)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/scatter_gather.py", line 23, in scatter_map
+    return list(zip(*map(scatter_map, obj)))
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/scatter_gather.py", line 19, in scatter_map
+    return Scatter.apply(target_gpus, None, dim, obj)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/_functions.py", line 96, in forward
+    outputs = comm.scatter(input, target_gpus, chunk_sizes, ctx.dim, streams)
+  File "/home/hushuwang/miniconda3/envs/torch/lib/python3.8/site-packages/torch/nn/parallel/comm.py", line 189, in scatter
+    return tuple(torch._C._scatter(tensor, devices, chunk_sizes, dim, streams))
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+/home/hushuwang/mahua
+alpha=0.2, batch_size=20, cuda=True, decay_epoch=20, dropout=0.5, epoch=200, log_file='./lr', lr=0.0005, model_file='./data/model.pkl', nheads=2, nodeDataFile='./data/embeddings.emb', node_hid=16, node_in=32, node_out=32, node_raw=64, num_nodes=278, odDataFile='./data/od_tensor.npy', patience=20, seed=72, seq_len=6, timeDataFile='./data/dateFeature.csv', time_hid=256, time_in=33, time_out=1024, weight_decay=0.0
+loading data...
+(607, 6, 278, 278)
+10.067434360756522
+(199, 6, 278, 278)
+(199, 6, 278, 278)
+train data size: 607
+val data size: 199
+test data size: 199
+data loaded!
+cuda.device_count: 2
+Training batch: 0 	 in epoch0 	 batch mse loss:0.0166
+2022-07-08 20:50:06 | epoch:    1/200, training time: 38.6s, inference time: 7.2s
+train mse loss: 11.4547, val mse loss: 20.5257, val mae loss: 1.3664, val rmse loss: 4.4242
+Training batch: 0 	 in epoch1 	 batch mse loss:0.0132
+2022-07-08 20:50:35 | epoch:    2/200, training time: 22.1s, inference time: 6.9s
+train mse loss: 10.2368, val mse loss: 20.1578, val mae loss: 1.3471, val rmse loss: 4.4285
+Training batch: 0 	 in epoch2 	 batch mse loss:0.0132
+2022-07-08 20:51:06 | epoch:    3/200, training time: 22.7s, inference time: 8.3s
+train mse loss: 9.2468, val mse loss: 19.6842, val mae loss: 1.3254, val rmse loss: 4.3219
+Training batch: 0 	 in epoch3 	 batch mse loss:0.0151
+2022-07-08 20:51:39 | epoch:    4/200, training time: 26.6s, inference time: 6.9s
+train mse loss: 8.3811, val mse loss: 19.2114, val mae loss: 1.3017, val rmse loss: 4.2550
+Training batch: 0 	 in epoch4 	 batch mse loss:0.0116
+2022-07-08 20:52:10 | epoch:    5/200, training time: 22.3s, inference time: 8.6s
+train mse loss: 7.5996, val mse loss: 18.7301, val mae loss: 1.2769, val rmse loss: 4.2391
+Training batch: 0 	 in epoch5 	 batch mse loss:0.0116
+2022-07-08 20:52:39 | epoch:    6/200, training time: 19.9s, inference time: 9.1s
+train mse loss: 6.9959, val mse loss: 18.1300, val mae loss: 1.2510, val rmse loss: 4.1281
+Training batch: 0 	 in epoch6 	 batch mse loss:0.0103
+2022-07-08 20:53:15 | epoch:    7/200, training time: 28.6s, inference time: 7.5s
+train mse loss: 6.4277, val mse loss: 17.6602, val mae loss: 1.2273, val rmse loss: 4.0957
+Training batch: 0 	 in epoch7 	 batch mse loss:0.0098
+2022-07-08 20:53:58 | epoch:    8/200, training time: 27.8s, inference time: 15.0s
+train mse loss: 6.0433, val mse loss: 17.0464, val mae loss: 1.2007, val rmse loss: 4.0646
+Training batch: 0 	 in epoch8 	 batch mse loss:0.0129
+2022-07-08 20:54:42 | epoch:    9/200, training time: 36.5s, inference time: 7.0s
+train mse loss: 5.6234, val mse loss: 16.4292, val mae loss: 1.1756, val rmse loss: 3.9587
+Training batch: 0 	 in epoch9 	 batch mse loss:0.0094
+2022-07-08 20:55:09 | epoch:   10/200, training time: 21.5s, inference time: 6.1s
+train mse loss: 5.3030, val mse loss: 15.7402, val mae loss: 1.1506, val rmse loss: 3.8430
+Training batch: 0 	 in epoch10 	 batch mse loss:0.0085
+2022-07-08 20:55:34 | epoch:   11/200, training time: 19.1s, inference time: 5.9s
+train mse loss: 5.0190, val mse loss: 15.1019, val mae loss: 1.1271, val rmse loss: 3.7574
+Training batch: 0 	 in epoch11 	 batch mse loss:0.0090
+2022-07-08 20:56:27 | epoch:   12/200, training time: 40.8s, inference time: 11.6s
+train mse loss: 4.8129, val mse loss: 14.5026, val mae loss: 1.1065, val rmse loss: 3.6946
+Training batch: 0 	 in epoch12 	 batch mse loss:0.0057
+2022-07-08 20:56:52 | epoch:   13/200, training time: 19.3s, inference time: 6.0s
+train mse loss: 4.6748, val mse loss: 13.9346, val mae loss: 1.0873, val rmse loss: 3.6038
+Training batch: 0 	 in epoch13 	 batch mse loss:0.0069
+2022-07-08 20:57:16 | epoch:   14/200, training time: 18.7s, inference time: 5.5s
+train mse loss: 4.5063, val mse loss: 13.3696, val mae loss: 1.0698, val rmse loss: 3.5458
+Training batch: 0 	 in epoch14 	 batch mse loss:0.0080
+2022-07-08 20:57:43 | epoch:   15/200, training time: 18.4s, inference time: 8.8s
+train mse loss: 4.4327, val mse loss: 12.9594, val mae loss: 1.0564, val rmse loss: 3.4447
+Training batch: 0 	 in epoch15 	 batch mse loss:0.0060
+2022-07-08 20:58:17 | epoch:   16/200, training time: 24.3s, inference time: 9.0s
+train mse loss: 4.3094, val mse loss: 12.5099, val mae loss: 1.0435, val rmse loss: 3.4629
+Training batch: 0 	 in epoch16 	 batch mse loss:0.0076
+2022-07-08 20:58:44 | epoch:   17/200, training time: 21.2s, inference time: 5.7s
+train mse loss: 4.2381, val mse loss: 12.0674, val mae loss: 1.0332, val rmse loss: 3.3030
+Training batch: 0 	 in epoch17 	 batch mse loss:0.0070
+2022-07-08 20:59:07 | epoch:   18/200, training time: 18.3s, inference time: 5.4s
+train mse loss: 4.2166, val mse loss: 11.7856, val mae loss: 1.0260, val rmse loss: 3.3871
+Training batch: 0 	 in epoch18 	 batch mse loss:0.0065
+2022-07-08 20:59:34 | epoch:   19/200, training time: 17.4s, inference time: 9.3s
+train mse loss: 4.1490, val mse loss: 11.4519, val mae loss: 1.0182, val rmse loss: 3.2827
+Training batch: 0 	 in epoch19 	 batch mse loss:0.0068
+2022-07-08 21:00:10 | epoch:   20/200, training time: 27.7s, inference time: 8.8s
+train mse loss: 4.1165, val mse loss: 11.3246, val mae loss: 1.0155, val rmse loss: 3.2035
+Training batch: 0 	 in epoch20 	 batch mse loss:0.0068
+2022-07-08 21:00:37 | epoch:   21/200, training time: 21.3s, inference time: 5.7s
+train mse loss: 4.0580, val mse loss: 11.1615, val mae loss: 1.0121, val rmse loss: 3.1521
+Training batch: 0 	 in epoch21 	 batch mse loss:0.0057
+2022-07-08 21:01:01 | epoch:   22/200, training time: 18.2s, inference time: 5.0s
+train mse loss: 4.0941, val mse loss: 10.9641, val mae loss: 1.0089, val rmse loss: 3.1857
+Training batch: 0 	 in epoch22 	 batch mse loss:0.0057
+2022-07-08 21:01:25 | epoch:   23/200, training time: 18.1s, inference time: 5.7s
+train mse loss: 4.0071, val mse loss: 10.8363, val mae loss: 1.0059, val rmse loss: 3.2006
+Training batch: 0 	 in epoch23 	 batch mse loss:0.0072
+2022-07-08 21:01:56 | epoch:   24/200, training time: 26.1s, inference time: 5.6s
+train mse loss: 3.9952, val mse loss: 10.7554, val mae loss: 1.0049, val rmse loss: 3.1510
+Training batch: 0 	 in epoch24 	 batch mse loss:0.0070
+2022-07-08 21:02:30 | epoch:   25/200, training time: 28.0s, inference time: 5.7s
+train mse loss: 3.9664, val mse loss: 10.5833, val mae loss: 1.0018, val rmse loss: 3.0806
+Training batch: 0 	 in epoch25 	 batch mse loss:0.0093
+2022-07-08 21:02:54 | epoch:   26/200, training time: 18.5s, inference time: 5.7s
+train mse loss: 3.9685, val mse loss: 10.5486, val mae loss: 1.0012, val rmse loss: 3.1791
+Training batch: 0 	 in epoch26 	 batch mse loss:0.0063
+2022-07-08 21:03:20 | epoch:   27/200, training time: 18.1s, inference time: 7.5s
+train mse loss: 3.9361, val mse loss: 10.4558, val mae loss: 1.0001, val rmse loss: 3.1501
+Training batch: 0 	 in epoch27 	 batch mse loss:0.0070
+2022-07-08 21:03:46 | epoch:   28/200, training time: 20.3s, inference time: 5.7s
+train mse loss: 3.9327, val mse loss: 10.4195, val mae loss: 0.9988, val rmse loss: 3.1332
+Training batch: 0 	 in epoch28 	 batch mse loss:0.0058
+2022-07-08 21:04:23 | epoch:   29/200, training time: 29.0s, inference time: 8.5s
+train mse loss: 3.9090, val mse loss: 10.3122, val mae loss: 0.9972, val rmse loss: 3.1134
+Training batch: 0 	 in epoch29 	 batch mse loss:0.0056
+2022-07-08 21:04:56 | epoch:   30/200, training time: 27.5s, inference time: 5.6s
+train mse loss: 3.9248, val mse loss: 10.2695, val mae loss: 0.9969, val rmse loss: 3.0810
+Training batch: 0 	 in epoch30 	 batch mse loss:0.0060
+2022-07-08 21:05:23 | epoch:   31/200, training time: 19.5s, inference time: 6.6s
+train mse loss: 3.8748, val mse loss: 10.2882, val mae loss: 0.9977, val rmse loss: 3.0896
+Training batch: 0 	 in epoch31 	 batch mse loss:0.0076
+2022-07-08 21:05:54 | epoch:   32/200, training time: 21.0s, inference time: 10.9s
+train mse loss: 3.8815, val mse loss: 10.1529, val mae loss: 0.9946, val rmse loss: 3.0196
+Training batch: 0 	 in epoch32 	 batch mse loss:0.0074
+2022-07-08 21:06:11 | epoch:   33/200, training time: 16.4s, inference time: 0.5s
+train mse loss: 3.8736, val mse loss: 10.0960, val mae loss: 0.9938, val rmse loss: 3.1193
+Training batch: 0 	 in epoch33 	 batch mse loss:0.0066
+2022-07-08 21:06:17 | epoch:   34/200, training time: 0.9s, inference time: 4.5s
+train mse loss: 3.8405, val mse loss: 10.0342, val mae loss: 0.9927, val rmse loss: 3.0434
+Training batch: 0 	 in epoch34 	 batch mse loss:0.0053
+2022-07-08 21:06:50 | epoch:   35/200, training time: 27.2s, inference time: 5.8s
+train mse loss: 3.8058, val mse loss: 10.0092, val mae loss: 0.9924, val rmse loss: 3.0766
+Training batch: 0 	 in epoch35 	 batch mse loss:0.0059
+2022-07-08 21:07:15 | epoch:   36/200, training time: 19.2s, inference time: 6.2s
+train mse loss: 3.8056, val mse loss: 9.9516, val mae loss: 0.9912, val rmse loss: 3.0608
+Training batch: 0 	 in epoch36 	 batch mse loss:0.0060
+2022-07-08 21:07:40 | epoch:   37/200, training time: 18.0s, inference time: 6.5s
+train mse loss: 3.7952, val mse loss: 9.8972, val mae loss: 0.9899, val rmse loss: 3.0309
+Training batch: 0 	 in epoch37 	 batch mse loss:0.0050
+2022-07-08 21:08:06 | epoch:   38/200, training time: 20.2s, inference time: 6.4s
+train mse loss: 3.7726, val mse loss: 9.8639, val mae loss: 0.9892, val rmse loss: 3.0384
+Training batch: 0 	 in epoch38 	 batch mse loss:0.0071
+2022-07-08 21:09:00 | epoch:   39/200, training time: 36.3s, inference time: 17.7s
+train mse loss: 3.7571, val mse loss: 9.7831, val mae loss: 0.9873, val rmse loss: 3.0528
+Training batch: 0 	 in epoch39 	 batch mse loss:0.0068
+2022-07-08 21:10:14 | epoch:   40/200, training time: 63.6s, inference time: 10.4s
+train mse loss: 3.7623, val mse loss: 9.7530, val mae loss: 0.9873, val rmse loss: 2.9808
+Training batch: 0 	 in epoch40 	 batch mse loss:0.0061
+2022-07-08 21:10:39 | epoch:   41/200, training time: 19.3s, inference time: 5.9s
+train mse loss: 3.7461, val mse loss: 9.7102, val mae loss: 0.9859, val rmse loss: 2.9814
+Training batch: 0 	 in epoch41 	 batch mse loss:0.0054
+2022-07-08 21:11:04 | epoch:   42/200, training time: 18.6s, inference time: 5.8s
+train mse loss: 3.7490, val mse loss: 9.7109, val mae loss: 0.9857, val rmse loss: 3.0124
+Training batch: 0 	 in epoch42 	 batch mse loss:0.0064
+2022-07-08 21:11:32 | epoch:   43/200, training time: 18.8s, inference time: 9.9s
+train mse loss: 3.7284, val mse loss: 9.6304, val mae loss: 0.9846, val rmse loss: 3.0502
+Training batch: 0 	 in epoch43 	 batch mse loss:0.0065
+2022-07-08 21:12:39 | epoch:   44/200, training time: 55.7s, inference time: 10.9s
+train mse loss: 3.7052, val mse loss: 9.5615, val mae loss: 0.9830, val rmse loss: 3.0204
+Training batch: 0 	 in epoch44 	 batch mse loss:0.0058
+2022-07-08 21:13:30 | epoch:   45/200, training time: 38.8s, inference time: 11.7s
+train mse loss: 3.6905, val mse loss: 9.5395, val mae loss: 0.9829, val rmse loss: 2.9878
+Training batch: 0 	 in epoch45 	 batch mse loss:0.0065
+2022-07-08 21:14:11 | epoch:   46/200, training time: 31.6s, inference time: 10.2s
+train mse loss: 3.6927, val mse loss: 9.5500, val mae loss: 0.9821, val rmse loss: 2.9843
+Training batch: 0 	 in epoch46 	 batch mse loss:0.0064
+2022-07-08 21:14:39 | epoch:   47/200, training time: 22.2s, inference time: 5.8s
+train mse loss: 3.7139, val mse loss: 9.4414, val mae loss: 0.9806, val rmse loss: 2.9683
+Training batch: 0 	 in epoch47 	 batch mse loss:0.0060
+2022-07-08 21:15:06 | epoch:   48/200, training time: 20.4s, inference time: 6.1s
+train mse loss: 3.6806, val mse loss: 9.4776, val mae loss: 0.9812, val rmse loss: 2.9768
+Training batch: 0 	 in epoch48 	 batch mse loss:0.0052
+2022-07-08 21:15:32 | epoch:   49/200, training time: 19.9s, inference time: 5.9s
+train mse loss: 3.6555, val mse loss: 9.3601, val mae loss: 0.9791, val rmse loss: 2.9985
+Training batch: 0 	 in epoch49 	 batch mse loss:0.0046
+2022-07-08 21:15:56 | epoch:   50/200, training time: 18.1s, inference time: 5.8s
+train mse loss: 3.6819, val mse loss: 9.3093, val mae loss: 0.9782, val rmse loss: 2.9879
+Training batch: 0 	 in epoch50 	 batch mse loss:0.0069
+2022-07-08 21:16:34 | epoch:   51/200, training time: 25.9s, inference time: 12.9s
+train mse loss: 3.6767, val mse loss: 9.2327, val mae loss: 0.9763, val rmse loss: 2.8937
+Training batch: 0 	 in epoch51 	 batch mse loss:0.0057
+2022-07-08 21:17:12 | epoch:   52/200, training time: 30.4s, inference time: 7.5s
+train mse loss: 3.6584, val mse loss: 9.1986, val mae loss: 0.9767, val rmse loss: 2.8662
+Training batch: 0 	 in epoch52 	 batch mse loss:0.0044
+2022-07-08 21:17:41 | epoch:   53/200, training time: 21.0s, inference time: 7.7s
+train mse loss: 3.6370, val mse loss: 9.1300, val mae loss: 0.9750, val rmse loss: 2.9471
+Training batch: 0 	 in epoch53 	 batch mse loss:0.0055
+2022-07-08 21:18:16 | epoch:   54/200, training time: 26.4s, inference time: 9.0s
+train mse loss: 3.6379, val mse loss: 9.0922, val mae loss: 0.9744, val rmse loss: 2.9627
+Training batch: 0 	 in epoch54 	 batch mse loss:0.0058
+2022-07-08 21:18:43 | epoch:   55/200, training time: 21.1s, inference time: 5.8s
+train mse loss: 3.6471, val mse loss: 9.0458, val mae loss: 0.9734, val rmse loss: 2.9606
+Training batch: 0 	 in epoch55 	 batch mse loss:0.0050
+2022-07-08 21:19:08 | epoch:   56/200, training time: 18.7s, inference time: 5.8s
+train mse loss: 3.6111, val mse loss: 9.0006, val mae loss: 0.9727, val rmse loss: 2.9158
+Training batch: 0 	 in epoch56 	 batch mse loss:0.0055
+2022-07-08 21:19:31 | epoch:   57/200, training time: 17.8s, inference time: 5.8s
+train mse loss: 3.6005, val mse loss: 8.9414, val mae loss: 0.9714, val rmse loss: 2.8743
+Training batch: 0 	 in epoch57 	 batch mse loss:0.0056
+2022-07-08 21:20:07 | epoch:   58/200, training time: 28.6s, inference time: 7.1s
+train mse loss: 3.6260, val mse loss: 8.9018, val mae loss: 0.9709, val rmse loss: 2.9220
+Training batch: 0 	 in epoch58 	 batch mse loss:0.0068
+2022-07-08 21:20:36 | epoch:   59/200, training time: 23.8s, inference time: 5.6s
+train mse loss: 3.6117, val mse loss: 8.9111, val mae loss: 0.9713, val rmse loss: 2.8849
+Training batch: 0 	 in epoch59 	 batch mse loss:0.0050
+2022-07-08 21:21:01 | epoch:   60/200, training time: 18.5s, inference time: 5.8s
+train mse loss: 3.6038, val mse loss: 8.8101, val mae loss: 0.9694, val rmse loss: 2.9459
+Training batch: 0 	 in epoch60 	 batch mse loss:0.0061
+2022-07-08 21:21:27 | epoch:   61/200, training time: 20.7s, inference time: 5.6s
+train mse loss: 3.6010, val mse loss: 8.8135, val mae loss: 0.9698, val rmse loss: 2.8433
+Training batch: 0 	 in epoch61 	 batch mse loss:0.0051
+2022-07-08 21:21:52 | epoch:   62/200, training time: 19.0s, inference time: 6.2s
+train mse loss: 3.5766, val mse loss: 8.7184, val mae loss: 0.9682, val rmse loss: 2.8644
+Training batch: 0 	 in epoch62 	 batch mse loss:0.0054
+2022-07-08 21:22:18 | epoch:   63/200, training time: 19.4s, inference time: 6.0s
+train mse loss: 3.5718, val mse loss: 8.7741, val mae loss: 0.9691, val rmse loss: 2.8372
+Training batch: 0 	 in epoch63 	 batch mse loss:0.0061
+2022-07-08 21:22:43 | epoch:   64/200, training time: 19.1s, inference time: 5.9s
+train mse loss: 3.5784, val mse loss: 8.6658, val mae loss: 0.9673, val rmse loss: 2.8868
+Training batch: 0 	 in epoch64 	 batch mse loss:0.0063
+2022-07-08 21:23:16 | epoch:   65/200, training time: 19.4s, inference time: 13.6s
+train mse loss: 3.5512, val mse loss: 8.5989, val mae loss: 0.9661, val rmse loss: 2.8964
+Training batch: 0 	 in epoch65 	 batch mse loss:0.0063
+2022-07-08 21:24:24 | epoch:   66/200, training time: 51.9s, inference time: 16.0s
+train mse loss: 3.5904, val mse loss: 8.5562, val mae loss: 0.9652, val rmse loss: 2.8518
+Training batch: 0 	 in epoch66 	 batch mse loss:0.0052
+2022-07-08 21:25:28 | epoch:   67/200, training time: 49.3s, inference time: 15.2s
+train mse loss: 3.5504, val mse loss: 8.5185, val mae loss: 0.9647, val rmse loss: 2.8590
+Training batch: 0 	 in epoch67 	 batch mse loss:0.0064
+2022-07-08 21:26:35 | epoch:   68/200, training time: 49.5s, inference time: 17.4s
+train mse loss: 3.5558, val mse loss: 8.4600, val mae loss: 0.9634, val rmse loss: 2.8149
+Training batch: 0 	 in epoch68 	 batch mse loss:0.0055
+2022-07-08 21:27:27 | epoch:   69/200, training time: 39.5s, inference time: 12.3s
+train mse loss: 3.5459, val mse loss: 8.4200, val mae loss: 0.9632, val rmse loss: 2.7050
+Training batch: 0 	 in epoch69 	 batch mse loss:0.0054
+2022-07-08 21:28:34 | epoch:   70/200, training time: 54.6s, inference time: 12.9s
+train mse loss: 3.5235, val mse loss: 8.4466, val mae loss: 0.9642, val rmse loss: 2.8348
+Training batch: 0 	 in epoch70 	 batch mse loss:0.0058
+2022-07-08 21:29:29 | epoch:   71/200, training time: 43.2s, inference time: 11.9s
+train mse loss: 3.5281, val mse loss: 8.3527, val mae loss: 0.9623, val rmse loss: 2.8169
+Training batch: 0 	 in epoch71 	 batch mse loss:0.0061
+2022-07-08 21:30:32 | epoch:   72/200, training time: 42.9s, inference time: 20.0s
+train mse loss: 3.5572, val mse loss: 8.3169, val mae loss: 0.9618, val rmse loss: 2.8171
+Training batch: 0 	 in epoch72 	 batch mse loss:0.0059
+2022-07-08 21:31:29 | epoch:   73/200, training time: 44.8s, inference time: 12.3s
+train mse loss: 3.5354, val mse loss: 8.2794, val mae loss: 0.9613, val rmse loss: 2.7978
+Training batch: 0 	 in epoch73 	 batch mse loss:0.0058
+2022-07-08 21:32:33 | epoch:   74/200, training time: 46.9s, inference time: 16.3s
+train mse loss: 3.5113, val mse loss: 8.2184, val mae loss: 0.9598, val rmse loss: 2.7790
+Training batch: 0 	 in epoch74 	 batch mse loss:0.0072
+2022-07-08 21:33:25 | epoch:   75/200, training time: 40.1s, inference time: 12.1s
+train mse loss: 3.5197, val mse loss: 8.1931, val mae loss: 0.9598, val rmse loss: 2.7893
+Training batch: 0 	 in epoch75 	 batch mse loss:0.0063
+2022-07-08 21:34:16 | epoch:   76/200, training time: 39.1s, inference time: 12.2s
+train mse loss: 3.5233, val mse loss: 8.1653, val mae loss: 0.9594, val rmse loss: 2.7856
+Training batch: 0 	 in epoch76 	 batch mse loss:0.0048
+2022-07-08 21:35:04 | epoch:   77/200, training time: 37.3s, inference time: 11.0s
+train mse loss: 3.5156, val mse loss: 8.1271, val mae loss: 0.9589, val rmse loss: 2.7844
+Training batch: 0 	 in epoch77 	 batch mse loss:0.0063
+2022-07-08 21:35:57 | epoch:   78/200, training time: 38.4s, inference time: 13.9s
+train mse loss: 3.5204, val mse loss: 8.0995, val mae loss: 0.9589, val rmse loss: 2.7657
+Training batch: 0 	 in epoch78 	 batch mse loss:0.0064
+2022-07-08 21:36:50 | epoch:   79/200, training time: 42.0s, inference time: 11.5s
+train mse loss: 3.5194, val mse loss: 8.0447, val mae loss: 0.9578, val rmse loss: 2.7660
+Training batch: 0 	 in epoch79 	 batch mse loss:0.0060
+2022-07-08 21:37:37 | epoch:   80/200, training time: 35.8s, inference time: 11.1s
+train mse loss: 3.4875, val mse loss: 7.9824, val mae loss: 0.9575, val rmse loss: 2.7571
+Training batch: 0 	 in epoch80 	 batch mse loss:0.0059
+2022-07-08 21:38:56 | epoch:   81/200, training time: 62.8s, inference time: 16.2s
+train mse loss: 3.5193, val mse loss: 7.9377, val mae loss: 0.9559, val rmse loss: 2.7343
+Training batch: 0 	 in epoch81 	 batch mse loss:0.0062
+2022-07-08 21:40:07 | epoch:   82/200, training time: 49.7s, inference time: 21.0s
+train mse loss: 3.4885, val mse loss: 7.9373, val mae loss: 0.9568, val rmse loss: 2.7125
+Training batch: 0 	 in epoch82 	 batch mse loss:0.0065
+2022-07-08 21:40:57 | epoch:   83/200, training time: 36.5s, inference time: 13.6s
+train mse loss: 3.4918, val mse loss: 7.8790, val mae loss: 0.9556, val rmse loss: 2.7280
+Training batch: 0 	 in epoch83 	 batch mse loss:0.0054
+2022-07-08 21:41:42 | epoch:   84/200, training time: 33.3s, inference time: 11.7s
+train mse loss: 3.4955, val mse loss: 7.8324, val mae loss: 0.9547, val rmse loss: 2.7160
+Training batch: 0 	 in epoch84 	 batch mse loss:0.0066
+2022-07-08 21:42:26 | epoch:   85/200, training time: 28.6s, inference time: 15.4s
+train mse loss: 3.4812, val mse loss: 7.8311, val mae loss: 0.9555, val rmse loss: 2.7525
+Training batch: 0 	 in epoch85 	 batch mse loss:0.0047
+2022-07-08 21:43:19 | epoch:   86/200, training time: 40.8s, inference time: 12.1s
+train mse loss: 3.4725, val mse loss: 7.7500, val mae loss: 0.9537, val rmse loss: 2.7266
+Training batch: 0 	 in epoch86 	 batch mse loss:0.0049
+2022-07-08 21:44:23 | epoch:   87/200, training time: 49.6s, inference time: 14.6s
+train mse loss: 3.4749, val mse loss: 7.7613, val mae loss: 0.9540, val rmse loss: 2.7110
+Training batch: 0 	 in epoch87 	 batch mse loss:0.0056
+2022-07-08 21:45:08 | epoch:   88/200, training time: 33.2s, inference time: 12.2s
+train mse loss: 3.4992, val mse loss: 7.7223, val mae loss: 0.9538, val rmse loss: 2.7114
+Training batch: 0 	 in epoch88 	 batch mse loss:0.0060
+2022-07-08 21:46:17 | epoch:   89/200, training time: 53.8s, inference time: 15.0s
+train mse loss: 3.4574, val mse loss: 7.6842, val mae loss: 0.9530, val rmse loss: 2.7183
+Training batch: 0 	 in epoch89 	 batch mse loss:0.0056
+2022-07-08 21:47:08 | epoch:   90/200, training time: 40.8s, inference time: 10.2s
+train mse loss: 3.4800, val mse loss: 7.6171, val mae loss: 0.9516, val rmse loss: 2.6858
+Training batch: 0 	 in epoch90 	 batch mse loss:0.0061
+2022-07-08 21:47:53 | epoch:   91/200, training time: 34.9s, inference time: 9.4s
+train mse loss: 3.4813, val mse loss: 7.6247, val mae loss: 0.9523, val rmse loss: 2.7035
+Training batch: 0 	 in epoch91 	 batch mse loss:0.0049
+2022-07-08 21:49:02 | epoch:   92/200, training time: 49.7s, inference time: 19.7s
+train mse loss: 3.4549, val mse loss: 7.5619, val mae loss: 0.9512, val rmse loss: 2.6965
+Training batch: 0 	 in epoch92 	 batch mse loss:0.0054
+2022-07-08 21:49:51 | epoch:   93/200, training time: 35.7s, inference time: 13.8s
+train mse loss: 3.4639, val mse loss: 7.5481, val mae loss: 0.9512, val rmse loss: 2.6702
+Training batch: 0 	 in epoch93 	 batch mse loss:0.0055
+2022-07-08 21:51:01 | epoch:   94/200, training time: 58.8s, inference time: 10.5s
+train mse loss: 3.4706, val mse loss: 7.4875, val mae loss: 0.9504, val rmse loss: 2.6561
+Training batch: 0 	 in epoch94 	 batch mse loss:0.0061
+2022-07-08 21:52:02 | epoch:   95/200, training time: 39.7s, inference time: 21.2s
+train mse loss: 3.4510, val mse loss: 7.4943, val mae loss: 0.9511, val rmse loss: 2.6965
+Training batch: 0 	 in epoch95 	 batch mse loss:0.0054
+2022-07-08 21:53:09 | epoch:   96/200, training time: 54.6s, inference time: 13.1s
+train mse loss: 3.4450, val mse loss: 7.4313, val mae loss: 0.9497, val rmse loss: 2.6484
+Training batch: 0 	 in epoch96 	 batch mse loss:0.0053
+2022-07-08 21:53:54 | epoch:   97/200, training time: 30.2s, inference time: 14.3s
+train mse loss: 3.4489, val mse loss: 7.4371, val mae loss: 0.9498, val rmse loss: 2.6726
+Training batch: 0 	 in epoch97 	 batch mse loss:0.0051
+2022-07-08 21:54:59 | epoch:   98/200, training time: 53.0s, inference time: 11.7s
+train mse loss: 3.4741, val mse loss: 7.3941, val mae loss: 0.9494, val rmse loss: 2.6571
+Training batch: 0 	 in epoch98 	 batch mse loss:0.0049
+2022-07-08 21:55:44 | epoch:   99/200, training time: 34.8s, inference time: 11.1s
+train mse loss: 3.4448, val mse loss: 7.3538, val mae loss: 0.9492, val rmse loss: 2.6603
+Training batch: 0 	 in epoch99 	 batch mse loss:0.0059
+2022-07-08 21:56:58 | epoch:  100/200, training time: 58.9s, inference time: 15.0s
+train mse loss: 3.4463, val mse loss: 7.2878, val mae loss: 0.9476, val rmse loss: 2.6356
+Training batch: 0 	 in epoch100 	 batch mse loss:0.0061
+2022-07-08 21:58:06 | epoch:  101/200, training time: 47.3s, inference time: 20.8s
+train mse loss: 3.4471, val mse loss: 7.2897, val mae loss: 0.9477, val rmse loss: 2.6321
+Training batch: 0 	 in epoch101 	 batch mse loss:0.0044
+2022-07-08 21:59:08 | epoch:  102/200, training time: 48.3s, inference time: 13.2s
+train mse loss: 3.4574, val mse loss: 7.2483, val mae loss: 0.9474, val rmse loss: 2.6542
+Training batch: 0 	 in epoch102 	 batch mse loss:0.0052
+2022-07-08 22:00:25 | epoch:  103/200, training time: 55.0s, inference time: 22.2s
+train mse loss: 3.4680, val mse loss: 7.2177, val mae loss: 0.9472, val rmse loss: 2.6294
+Training batch: 0 	 in epoch103 	 batch mse loss:0.0053
+2022-07-08 22:01:26 | epoch:  104/200, training time: 48.5s, inference time: 12.2s
+train mse loss: 3.4476, val mse loss: 7.2218, val mae loss: 0.9480, val rmse loss: 2.5827
+Training batch: 0 	 in epoch104 	 batch mse loss:0.0056
+2022-07-08 22:02:33 | epoch:  105/200, training time: 46.7s, inference time: 20.5s
+train mse loss: 3.4364, val mse loss: 7.1981, val mae loss: 0.9475, val rmse loss: 2.6192
+Training batch: 0 	 in epoch105 	 batch mse loss:0.0058
+2022-07-08 22:03:29 | epoch:  106/200, training time: 44.0s, inference time: 11.9s
+train mse loss: 3.4421, val mse loss: 7.1898, val mae loss: 0.9475, val rmse loss: 2.5986
+Training batch: 0 	 in epoch106 	 batch mse loss:0.0050
+2022-07-08 22:04:32 | epoch:  107/200, training time: 43.4s, inference time: 20.0s
+train mse loss: 3.4204, val mse loss: 7.1449, val mae loss: 0.9463, val rmse loss: 2.6300
+Training batch: 0 	 in epoch107 	 batch mse loss:0.0053
+2022-07-08 22:05:28 | epoch:  108/200, training time: 42.9s, inference time: 12.7s
+train mse loss: 3.4281, val mse loss: 7.1194, val mae loss: 0.9464, val rmse loss: 2.6101
+Training batch: 0 	 in epoch108 	 batch mse loss:0.0066
+2022-07-08 22:06:38 | epoch:  109/200, training time: 58.9s, inference time: 11.3s
+train mse loss: 3.4213, val mse loss: 7.0545, val mae loss: 0.9451, val rmse loss: 2.6025
+Training batch: 0 	 in epoch109 	 batch mse loss:0.0053
+2022-07-08 22:07:32 | epoch:  110/200, training time: 43.6s, inference time: 10.6s
+train mse loss: 3.4131, val mse loss: 7.0524, val mae loss: 0.9454, val rmse loss: 2.5688
+Training batch: 0 	 in epoch110 	 batch mse loss:0.0063
+2022-07-08 22:08:43 | epoch:  111/200, training time: 58.3s, inference time: 12.2s
+train mse loss: 3.4371, val mse loss: 7.0124, val mae loss: 0.9443, val rmse loss: 2.5441
+Training batch: 0 	 in epoch111 	 batch mse loss:0.0058
+2022-07-08 22:09:40 | epoch:  112/200, training time: 44.5s, inference time: 12.9s
+train mse loss: 3.4181, val mse loss: 7.0372, val mae loss: 0.9453, val rmse loss: 2.6206
+Training batch: 0 	 in epoch112 	 batch mse loss:0.0064
+2022-07-08 22:10:48 | epoch:  113/200, training time: 56.3s, inference time: 11.5s
+train mse loss: 3.4210, val mse loss: 6.9741, val mae loss: 0.9441, val rmse loss: 2.5851
+Training batch: 0 	 in epoch113 	 batch mse loss:0.0061
+2022-07-08 22:11:46 | epoch:  114/200, training time: 41.3s, inference time: 16.2s
+train mse loss: 3.4237, val mse loss: 6.9562, val mae loss: 0.9442, val rmse loss: 2.5442
+Training batch: 0 	 in epoch114 	 batch mse loss:0.0057
+2022-07-08 22:12:49 | epoch:  115/200, training time: 51.2s, inference time: 11.9s
+train mse loss: 3.4413, val mse loss: 6.9158, val mae loss: 0.9432, val rmse loss: 2.5582
+Training batch: 0 	 in epoch115 	 batch mse loss:0.0057
+2022-07-08 22:13:47 | epoch:  116/200, training time: 42.1s, inference time: 16.5s
+train mse loss: 3.4331, val mse loss: 6.8987, val mae loss: 0.9431, val rmse loss: 2.5748
+Training batch: 0 	 in epoch116 	 batch mse loss:0.0056
+2022-07-08 22:14:56 | epoch:  117/200, training time: 56.5s, inference time: 12.6s
+train mse loss: 3.4215, val mse loss: 6.9031, val mae loss: 0.9435, val rmse loss: 2.5914
+Training batch: 0 	 in epoch117 	 batch mse loss:0.0051
+2022-07-08 22:15:49 | epoch:  118/200, training time: 38.5s, inference time: 14.1s
+train mse loss: 3.4232, val mse loss: 6.8803, val mae loss: 0.9436, val rmse loss: 2.5591
+Training batch: 0 	 in epoch118 	 batch mse loss:0.0057
+2022-07-08 22:17:00 | epoch:  119/200, training time: 57.2s, inference time: 13.3s
+train mse loss: 3.4324, val mse loss: 6.8455, val mae loss: 0.9432, val rmse loss: 2.5366
+Training batch: 0 	 in epoch119 	 batch mse loss:0.0057
+2022-07-08 22:17:59 | epoch:  120/200, training time: 39.7s, inference time: 19.8s
+train mse loss: 3.4049, val mse loss: 6.8613, val mae loss: 0.9439, val rmse loss: 2.5114
+Training batch: 0 	 in epoch120 	 batch mse loss:0.0056
+2022-07-08 22:19:06 | epoch:  121/200, training time: 54.8s, inference time: 11.9s
+train mse loss: 3.4005, val mse loss: 6.8098, val mae loss: 0.9423, val rmse loss: 2.5837
+Training batch: 0 	 in epoch121 	 batch mse loss:0.0057
+2022-07-08 22:20:17 | epoch:  122/200, training time: 52.5s, inference time: 18.3s
+train mse loss: 3.3994, val mse loss: 6.7547, val mae loss: 0.9411, val rmse loss: 2.5109
+Training batch: 0 	 in epoch122 	 batch mse loss:0.0049
+2022-07-08 22:21:24 | epoch:  123/200, training time: 52.9s, inference time: 14.2s
+train mse loss: 3.4214, val mse loss: 6.7886, val mae loss: 0.9421, val rmse loss: 2.5780
+Training batch: 0 	 in epoch123 	 batch mse loss:0.0050
+2022-07-08 22:22:38 | epoch:  124/200, training time: 57.2s, inference time: 17.1s
+train mse loss: 3.4008, val mse loss: 6.7529, val mae loss: 0.9423, val rmse loss: 2.5245
+Training batch: 0 	 in epoch124 	 batch mse loss:0.0064
+2022-07-08 22:23:32 | epoch:  125/200, training time: 42.5s, inference time: 11.5s
+train mse loss: 3.3947, val mse loss: 6.7168, val mae loss: 0.9411, val rmse loss: 2.5193
+Training batch: 0 	 in epoch125 	 batch mse loss:0.0057
+2022-07-08 22:24:49 | epoch:  126/200, training time: 64.2s, inference time: 12.7s
+train mse loss: 3.4116, val mse loss: 6.7090, val mae loss: 0.9407, val rmse loss: 2.5338
+Training batch: 0 	 in epoch126 	 batch mse loss:0.0051
+2022-07-08 22:25:47 | epoch:  127/200, training time: 43.5s, inference time: 15.0s
+train mse loss: 3.3949, val mse loss: 6.7223, val mae loss: 0.9421, val rmse loss: 2.5223
+Training batch: 0 	 in epoch127 	 batch mse loss:0.0045
+2022-07-08 22:27:04 | epoch:  128/200, training time: 61.8s, inference time: 15.3s
+train mse loss: 3.4025, val mse loss: 6.6510, val mae loss: 0.9398, val rmse loss: 2.4947
+Training batch: 0 	 in epoch128 	 batch mse loss:0.0054
+2022-07-08 22:28:24 | epoch:  129/200, training time: 59.6s, inference time: 19.9s
+train mse loss: 3.3965, val mse loss: 6.6602, val mae loss: 0.9405, val rmse loss: 2.5019
+Training batch: 0 	 in epoch129 	 batch mse loss:0.0059
+2022-07-08 22:29:29 | epoch:  130/200, training time: 50.7s, inference time: 14.7s
+train mse loss: 3.4014, val mse loss: 6.6347, val mae loss: 0.9405, val rmse loss: 2.5059
+Training batch: 0 	 in epoch130 	 batch mse loss:0.0056
+2022-07-08 22:30:53 | epoch:  131/200, training time: 68.0s, inference time: 15.5s
+train mse loss: 3.3947, val mse loss: 6.6105, val mae loss: 0.9399, val rmse loss: 2.5466
+Training batch: 0 	 in epoch131 	 batch mse loss:0.0052
+2022-07-08 22:32:07 | epoch:  132/200, training time: 50.5s, inference time: 23.3s
+train mse loss: 3.3980, val mse loss: 6.6033, val mae loss: 0.9403, val rmse loss: 2.5021
+Training batch: 0 	 in epoch132 	 batch mse loss:0.0047
+2022-07-08 22:33:19 | epoch:  133/200, training time: 59.6s, inference time: 13.0s
+train mse loss: 3.4215, val mse loss: 6.5665, val mae loss: 0.9390, val rmse loss: 2.4990
+Training batch: 0 	 in epoch133 	 batch mse loss:0.0061
+2022-07-08 22:34:41 | epoch:  134/200, training time: 65.9s, inference time: 16.0s
+train mse loss: 3.3852, val mse loss: 6.5713, val mae loss: 0.9402, val rmse loss: 2.5224
+Training batch: 0 	 in epoch134 	 batch mse loss:0.0056
+2022-07-08 22:35:53 | epoch:  135/200, training time: 48.6s, inference time: 23.4s
+train mse loss: 3.3837, val mse loss: 6.5317, val mae loss: 0.9388, val rmse loss: 2.4788
+Training batch: 0 	 in epoch135 	 batch mse loss:0.0055
+2022-07-08 22:37:14 | epoch:  136/200, training time: 63.0s, inference time: 17.3s
+train mse loss: 3.3934, val mse loss: 6.5192, val mae loss: 0.9386, val rmse loss: 2.4905
+Training batch: 0 	 in epoch136 	 batch mse loss:0.0057
+2022-07-08 22:38:40 | epoch:  137/200, training time: 64.7s, inference time: 21.3s
+train mse loss: 3.3957, val mse loss: 6.5017, val mae loss: 0.9384, val rmse loss: 2.4990
+Training batch: 0 	 in epoch137 	 batch mse loss:0.0062
+2022-07-08 22:39:53 | epoch:  138/200, training time: 48.7s, inference time: 24.5s
+train mse loss: 3.3919, val mse loss: 6.4827, val mae loss: 0.9382, val rmse loss: 2.4578
+Training batch: 0 	 in epoch138 	 batch mse loss:0.0060
+2022-07-08 22:41:08 | epoch:  139/200, training time: 61.6s, inference time: 13.7s
+train mse loss: 3.3987, val mse loss: 6.4655, val mae loss: 0.9379, val rmse loss: 2.4809
+Training batch: 0 	 in epoch139 	 batch mse loss:0.0052
+2022-07-08 22:42:24 | epoch:  140/200, training time: 52.6s, inference time: 23.1s
+train mse loss: 3.3994, val mse loss: 6.4774, val mae loss: 0.9385, val rmse loss: 2.4870
+Training batch: 0 	 in epoch140 	 batch mse loss:0.0050
+2022-07-08 22:43:40 | epoch:  141/200, training time: 58.5s, inference time: 17.7s
+train mse loss: 3.3977, val mse loss: 6.4725, val mae loss: 0.9387, val rmse loss: 2.5164
+Training batch: 0 	 in epoch141 	 batch mse loss:0.0053
+2022-07-08 22:45:05 | epoch:  142/200, training time: 71.1s, inference time: 14.4s
+train mse loss: 3.3851, val mse loss: 6.4268, val mae loss: 0.9380, val rmse loss: 2.4992
+Training batch: 0 	 in epoch142 	 batch mse loss:0.0050
+2022-07-08 22:46:11 | epoch:  143/200, training time: 48.0s, inference time: 18.1s
+train mse loss: 3.3859, val mse loss: 6.4275, val mae loss: 0.9381, val rmse loss: 2.4962
+Training batch: 0 	 in epoch143 	 batch mse loss:0.0049
+2022-07-08 22:47:26 | epoch:  144/200, training time: 60.1s, inference time: 14.5s
+train mse loss: 3.4110, val mse loss: 6.3930, val mae loss: 0.9371, val rmse loss: 2.4726
+Training batch: 0 	 in epoch144 	 batch mse loss:0.0047
+2022-07-08 22:48:45 | epoch:  145/200, training time: 63.2s, inference time: 15.6s
+train mse loss: 3.3885, val mse loss: 6.4022, val mae loss: 0.9379, val rmse loss: 2.4964
+Training batch: 0 	 in epoch145 	 batch mse loss:0.0051
+2022-07-08 22:49:54 | epoch:  146/200, training time: 51.0s, inference time: 17.9s
+train mse loss: 3.3871, val mse loss: 6.3789, val mae loss: 0.9372, val rmse loss: 2.5129
+Training batch: 0 	 in epoch146 	 batch mse loss:0.0047
+2022-07-08 22:51:20 | epoch:  147/200, training time: 72.9s, inference time: 13.1s
+train mse loss: 3.3831, val mse loss: 6.3605, val mae loss: 0.9369, val rmse loss: 2.4884
+Training batch: 0 	 in epoch147 	 batch mse loss:0.0055
+2022-07-08 22:52:38 | epoch:  148/200, training time: 55.3s, inference time: 23.2s
+train mse loss: 3.3806, val mse loss: 6.3538, val mae loss: 0.9370, val rmse loss: 2.5001
+Training batch: 0 	 in epoch148 	 batch mse loss:0.0059
+2022-07-08 22:53:44 | epoch:  149/200, training time: 47.5s, inference time: 17.9s
+train mse loss: 3.3772, val mse loss: 6.3685, val mae loss: 0.9378, val rmse loss: 2.4796
+Training batch: 0 	 in epoch149 	 batch mse loss:0.0055
+2022-07-08 22:55:01 | epoch:  150/200, training time: 63.1s, inference time: 14.6s
+train mse loss: 3.3744, val mse loss: 6.3288, val mae loss: 0.9365, val rmse loss: 2.4750
+Training batch: 0 	 in epoch150 	 batch mse loss:0.0060
+2022-07-08 22:56:06 | epoch:  151/200, training time: 47.6s, inference time: 17.1s
+train mse loss: 3.4093, val mse loss: 6.3182, val mae loss: 0.9366, val rmse loss: 2.4559
+Training batch: 0 	 in epoch151 	 batch mse loss:0.0054
+2022-07-08 22:57:23 | epoch:  152/200, training time: 63.0s, inference time: 14.3s
+train mse loss: 3.3851, val mse loss: 6.3047, val mae loss: 0.9365, val rmse loss: 2.4404
+Training batch: 0 	 in epoch152 	 batch mse loss:0.0052
+2022-07-08 22:58:37 | epoch:  153/200, training time: 54.0s, inference time: 19.8s
+train mse loss: 3.3999, val mse loss: 6.3131, val mae loss: 0.9372, val rmse loss: 2.4541
+Training batch: 0 	 in epoch153 	 batch mse loss:0.0058
+2022-07-08 22:59:50 | epoch:  154/200, training time: 55.9s, inference time: 17.2s
+train mse loss: 3.3819, val mse loss: 6.2782, val mae loss: 0.9363, val rmse loss: 2.4690
+Training batch: 0 	 in epoch154 	 batch mse loss:0.0054
+2022-07-08 23:01:13 | epoch:  155/200, training time: 67.0s, inference time: 15.3s
+train mse loss: 3.3888, val mse loss: 6.2797, val mae loss: 0.9361, val rmse loss: 2.4553
+Training batch: 0 	 in epoch155 	 batch mse loss:0.0053
+2022-07-08 23:02:27 | epoch:  156/200, training time: 52.9s, inference time: 21.9s
+train mse loss: 3.3729, val mse loss: 6.2616, val mae loss: 0.9363, val rmse loss: 2.4768
+Training batch: 0 	 in epoch156 	 batch mse loss:0.0061
+2022-07-08 23:03:27 | epoch:  157/200, training time: 46.8s, inference time: 13.2s
+train mse loss: 3.3721, val mse loss: 6.2342, val mae loss: 0.9353, val rmse loss: 2.4818
+Training batch: 0 	 in epoch157 	 batch mse loss:0.0053
+2022-07-08 23:04:47 | epoch:  158/200, training time: 63.7s, inference time: 15.9s
+train mse loss: 3.3691, val mse loss: 6.2467, val mae loss: 0.9361, val rmse loss: 2.4511
+Training batch: 0 	 in epoch158 	 batch mse loss:0.0059
+2022-07-08 23:05:45 | epoch:  159/200, training time: 43.2s, inference time: 14.7s
+train mse loss: 3.3708, val mse loss: 6.2393, val mae loss: 0.9358, val rmse loss: 2.4490
+Training batch: 0 	 in epoch159 	 batch mse loss:0.0053
+2022-07-08 23:07:02 | epoch:  160/200, training time: 61.5s, inference time: 15.2s
+train mse loss: 3.4102, val mse loss: 6.2210, val mae loss: 0.9356, val rmse loss: 2.4598
+Training batch: 0 	 in epoch160 	 batch mse loss:0.0053
+2022-07-08 23:08:17 | epoch:  161/200, training time: 53.3s, inference time: 22.1s
+train mse loss: 3.3899, val mse loss: 6.2074, val mae loss: 0.9354, val rmse loss: 2.4615
+Training batch: 0 	 in epoch161 	 batch mse loss:0.0049
+2022-07-08 23:09:22 | epoch:  162/200, training time: 49.8s, inference time: 15.2s
+train mse loss: 3.3786, val mse loss: 6.2164, val mae loss: 0.9358, val rmse loss: 2.4616
+Training batch: 0 	 in epoch162 	 batch mse loss:0.0047
+2022-07-08 23:10:48 | epoch:  163/200, training time: 68.5s, inference time: 17.6s
+train mse loss: 3.3718, val mse loss: 6.1987, val mae loss: 0.9355, val rmse loss: 2.4812
+Training batch: 0 	 in epoch163 	 batch mse loss:0.0047
+2022-07-08 23:11:58 | epoch:  164/200, training time: 47.2s, inference time: 22.9s
+train mse loss: 3.3822, val mse loss: 6.2057, val mae loss: 0.9363, val rmse loss: 2.4327
+Training batch: 0 	 in epoch164 	 batch mse loss:0.0057
+2022-07-08 23:13:13 | epoch:  165/200, training time: 61.7s, inference time: 13.3s
+train mse loss: 3.3863, val mse loss: 6.1643, val mae loss: 0.9350, val rmse loss: 2.4452
+Training batch: 0 	 in epoch165 	 batch mse loss:0.0054
+2022-07-08 23:14:25 | epoch:  166/200, training time: 48.9s, inference time: 22.7s
+train mse loss: 3.3720, val mse loss: 6.1633, val mae loss: 0.9348, val rmse loss: 2.4368
+Training batch: 0 	 in epoch166 	 batch mse loss:0.0056
+2022-07-08 23:15:48 | epoch:  167/200, training time: 61.7s, inference time: 21.2s
+train mse loss: 3.3822, val mse loss: 6.1521, val mae loss: 0.9347, val rmse loss: 2.4441
+Training batch: 0 	 in epoch167 	 batch mse loss:0.0053
+2022-07-08 23:17:11 | epoch:  168/200, training time: 66.0s, inference time: 17.2s
+train mse loss: 3.3656, val mse loss: 6.1472, val mae loss: 0.9351, val rmse loss: 2.4641
+Training batch: 0 	 in epoch168 	 batch mse loss:0.0055
+2022-07-08 23:18:12 | epoch:  169/200, training time: 46.6s, inference time: 14.7s
+train mse loss: 3.3848, val mse loss: 6.1721, val mae loss: 0.9355, val rmse loss: 2.4392
+Training batch: 0 	 in epoch169 	 batch mse loss:0.0051
+2022-07-08 23:19:32 | epoch:  170/200, training time: 63.2s, inference time: 15.9s
+train mse loss: 3.3790, val mse loss: 6.1414, val mae loss: 0.9350, val rmse loss: 2.4417
+Training batch: 0 	 in epoch170 	 batch mse loss:0.0050
+2022-07-08 23:21:03 | epoch:  171/200, training time: 76.7s, inference time: 14.7s
+train mse loss: 3.3775, val mse loss: 6.1340, val mae loss: 0.9354, val rmse loss: 2.4453
+Training batch: 0 	 in epoch171 	 batch mse loss:0.0059
+2022-07-08 23:22:03 | epoch:  172/200, training time: 44.1s, inference time: 15.8s
+train mse loss: 3.3646, val mse loss: 6.1132, val mae loss: 0.9346, val rmse loss: 2.4443
+Training batch: 0 	 in epoch172 	 batch mse loss:0.0057
+2022-07-08 23:23:18 | epoch:  173/200, training time: 61.1s, inference time: 14.1s
+train mse loss: 3.3847, val mse loss: 6.1143, val mae loss: 0.9345, val rmse loss: 2.4513
+Training batch: 0 	 in epoch173 	 batch mse loss:0.0047
+2022-07-08 23:24:42 | epoch:  174/200, training time: 68.4s, inference time: 15.9s
+train mse loss: 3.3614, val mse loss: 6.0944, val mae loss: 0.9345, val rmse loss: 2.4110
+Training batch: 0 	 in epoch174 	 batch mse loss:0.0056
+2022-07-08 23:25:54 | epoch:  175/200, training time: 47.6s, inference time: 23.5s
+train mse loss: 3.3672, val mse loss: 6.0870, val mae loss: 0.9343, val rmse loss: 2.4315
+Training batch: 0 	 in epoch175 	 batch mse loss:0.0049
+2022-07-08 23:27:08 | epoch:  176/200, training time: 58.0s, inference time: 16.8s
+train mse loss: 3.3911, val mse loss: 6.0678, val mae loss: 0.9337, val rmse loss: 2.4037
+Training batch: 0 	 in epoch176 	 batch mse loss:0.0051
+2022-07-08 23:28:27 | epoch:  177/200, training time: 56.8s, inference time: 21.8s
+train mse loss: 3.3702, val mse loss: 6.0702, val mae loss: 0.9339, val rmse loss: 2.4223
+Training batch: 0 	 in epoch177 	 batch mse loss:0.0052
+2022-07-08 23:29:29 | epoch:  178/200, training time: 46.9s, inference time: 15.6s
+train mse loss: 3.3774, val mse loss: 6.0613, val mae loss: 0.9337, val rmse loss: 2.4297
+Training batch: 0 	 in epoch178 	 batch mse loss:0.0055
+2022-07-08 23:30:52 | epoch:  179/200, training time: 65.8s, inference time: 16.7s
+train mse loss: 3.3690, val mse loss: 6.0471, val mae loss: 0.9334, val rmse loss: 2.3973
+Training batch: 0 	 in epoch179 	 batch mse loss:0.0057
+2022-07-08 23:32:12 | epoch:  180/200, training time: 51.2s, inference time: 28.6s
+train mse loss: 3.3686, val mse loss: 6.0446, val mae loss: 0.9336, val rmse loss: 2.4198
+Training batch: 0 	 in epoch180 	 batch mse loss:0.0051
+2022-07-08 23:33:34 | epoch:  181/200, training time: 62.0s, inference time: 20.4s
+train mse loss: 3.3769, val mse loss: 6.0682, val mae loss: 0.9347, val rmse loss: 2.4002
+Training batch: 0 	 in epoch181 	 batch mse loss:0.0051
+2022-07-08 23:35:04 | epoch:  182/200, training time: 73.5s, inference time: 16.3s
+train mse loss: 3.3668, val mse loss: 6.0272, val mae loss: 0.9335, val rmse loss: 2.4333
+Training batch: 0 	 in epoch182 	 batch mse loss:0.0059
+2022-07-08 23:36:24 | epoch:  183/200, training time: 59.4s, inference time: 20.6s
+train mse loss: 3.3878, val mse loss: 6.0410, val mae loss: 0.9338, val rmse loss: 2.4278
+Training batch: 0 	 in epoch183 	 batch mse loss:0.0060
+2022-07-08 23:37:46 | epoch:  184/200, training time: 62.9s, inference time: 19.4s
+train mse loss: 3.3770, val mse loss: 6.0436, val mae loss: 0.9343, val rmse loss: 2.4339
+Training batch: 0 	 in epoch184 	 batch mse loss:0.0059
+2022-07-08 23:39:01 | epoch:  185/200, training time: 60.9s, inference time: 14.0s
+train mse loss: 3.3756, val mse loss: 6.0431, val mae loss: 0.9345, val rmse loss: 2.4270
+Training batch: 0 	 in epoch185 	 batch mse loss:0.0054
+2022-07-08 23:40:14 | epoch:  186/200, training time: 48.6s, inference time: 24.2s
+train mse loss: 3.3624, val mse loss: 6.0170, val mae loss: 0.9336, val rmse loss: 2.3964
+Training batch: 0 	 in epoch186 	 batch mse loss:0.0052
+2022-07-08 23:41:21 | epoch:  187/200, training time: 54.0s, inference time: 13.1s
+train mse loss: 3.3648, val mse loss: 6.0169, val mae loss: 0.9338, val rmse loss: 2.4159
+Training batch: 0 	 in epoch187 	 batch mse loss:0.0051
+2022-07-08 23:42:26 | epoch:  188/200, training time: 47.6s, inference time: 17.4s
+train mse loss: 3.3577, val mse loss: 5.9883, val mae loss: 0.9328, val rmse loss: 2.4167
+Training batch: 0 	 in epoch188 	 batch mse loss:0.0058
+2022-07-08 23:43:27 | epoch:  189/200, training time: 45.0s, inference time: 15.7s
+train mse loss: 3.3803, val mse loss: 5.9911, val mae loss: 0.9334, val rmse loss: 2.4170
+Training batch: 0 	 in epoch189 	 batch mse loss:0.0051
+2022-07-08 23:44:43 | epoch:  190/200, training time: 62.1s, inference time: 14.6s
+train mse loss: 3.3776, val mse loss: 5.9872, val mae loss: 0.9330, val rmse loss: 2.4411
+Training batch: 0 	 in epoch190 	 batch mse loss:0.0050
+2022-07-08 23:45:43 | epoch:  191/200, training time: 40.9s, inference time: 18.9s
+train mse loss: 3.3715, val mse loss: 5.9743, val mae loss: 0.9328, val rmse loss: 2.4048
+Training batch: 0 	 in epoch191 	 batch mse loss:0.0061
+2022-07-08 23:47:07 | epoch:  192/200, training time: 68.4s, inference time: 15.7s
+train mse loss: 3.3630, val mse loss: 6.0065, val mae loss: 0.9343, val rmse loss: 2.4163
+Training batch: 0 	 in epoch192 	 batch mse loss:0.0055
+2022-07-08 23:48:16 | epoch:  193/200, training time: 48.7s, inference time: 19.9s
+train mse loss: 3.3848, val mse loss: 5.9655, val mae loss: 0.9330, val rmse loss: 2.4078
+Training batch: 0 	 in epoch193 	 batch mse loss:0.0049
+2022-07-08 23:49:45 | epoch:  194/200, training time: 68.8s, inference time: 20.2s
+train mse loss: 3.3790, val mse loss: 5.9591, val mae loss: 0.9329, val rmse loss: 2.4134
+Training batch: 0 	 in epoch194 	 batch mse loss:0.0051
+2022-07-08 23:51:12 | epoch:  195/200, training time: 73.1s, inference time: 14.3s
+train mse loss: 3.3802, val mse loss: 5.9930, val mae loss: 0.9338, val rmse loss: 2.4063
+Training batch: 0 	 in epoch195 	 batch mse loss:0.0049
+2022-07-08 23:52:26 | epoch:  196/200, training time: 50.7s, inference time: 23.5s
+train mse loss: 3.3702, val mse loss: 5.9646, val mae loss: 0.9331, val rmse loss: 2.4001
+Training batch: 0 	 in epoch196 	 batch mse loss:0.0056
+2022-07-08 23:53:38 | epoch:  197/200, training time: 56.4s, inference time: 15.4s
+train mse loss: 3.3862, val mse loss: 5.9499, val mae loss: 0.9330, val rmse loss: 2.4046
+Training batch: 0 	 in epoch197 	 batch mse loss:0.0058
+2022-07-08 23:54:42 | epoch:  198/200, training time: 48.5s, inference time: 15.9s
+train mse loss: 3.3724, val mse loss: 5.9419, val mae loss: 0.9326, val rmse loss: 2.3989
+Training batch: 0 	 in epoch198 	 batch mse loss:0.0056
+2022-07-08 23:56:08 | epoch:  199/200, training time: 62.0s, inference time: 23.3s
+train mse loss: 3.3585, val mse loss: 5.9440, val mae loss: 0.9329, val rmse loss: 2.3898
+Training batch: 0 	 in epoch199 	 batch mse loss:0.0053
+2022-07-08 23:57:14 | epoch:  200/200, training time: 51.3s, inference time: 14.5s
+train mse loss: 3.3634, val mse loss: 5.9238, val mae loss: 0.9325, val rmse loss: 2.4011
+/home/hushuwang/mahua
+alpha=0.2, batch_size=20, cuda=True, decay_epoch=20, dropout=0.5, epoch=200, log_file='./convlstm', lr=0.0005, model_file='./data/model.pkl', nheads=2, nodeDataFile='./data/embeddings.emb', node_hid=16, node_in=32, node_out=32, node_raw=64, num_nodes=278, odDataFile='./data/od_tensor.npy', patience=20, seed=72, seq_len=6, timeDataFile='./data/dateFeature.csv', time_hid=256, time_in=33, time_out=1024, weight_decay=0.0
+loading data...
+(607, 6, 278, 278)
+10.067434360756522
+(199, 6, 278, 278)
+(199, 6, 278, 278)
+train data size: 607
+val data size: 199
+test data size: 199
+data loaded!
+cuda.device_count: 2
+Training batch: 0 	 in epoch0 	 batch mse loss:0.0183
+2022-07-09 09:23:21 | epoch:    1/200, training time: 24.4s, inference time: 3.6s
+train mse loss: 5.3851, val mse loss: 10.0583, val mae loss: 1.0608, val rmse loss: 3.0989
+Training batch: 0 	 in epoch1 	 batch mse loss:0.0065
+2022-07-09 09:23:42 | epoch:    2/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.6093, val mse loss: 9.7844, val mae loss: 1.0284, val rmse loss: 3.0296
+Training batch: 0 	 in epoch2 	 batch mse loss:0.0065
+2022-07-09 09:24:01 | epoch:    3/200, training time: 16.4s, inference time: 3.4s
+train mse loss: 3.4314, val mse loss: 9.3337, val mae loss: 1.0156, val rmse loss: 2.9899
+Training batch: 0 	 in epoch3 	 batch mse loss:0.0052
+2022-07-09 09:24:21 | epoch:    4/200, training time: 16.3s, inference time: 3.3s
+train mse loss: 3.3943, val mse loss: 8.5624, val mae loss: 1.0126, val rmse loss: 2.8367
+Training batch: 0 	 in epoch4 	 batch mse loss:0.0053
+2022-07-09 09:24:41 | epoch:    5/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.3735, val mse loss: 7.8916, val mae loss: 1.0417, val rmse loss: 2.7381
+Training batch: 0 	 in epoch5 	 batch mse loss:0.0056
+2022-07-09 09:25:02 | epoch:    6/200, training time: 16.7s, inference time: 3.7s
+train mse loss: 3.3508, val mse loss: 8.2430, val mae loss: 1.0062, val rmse loss: 2.7733
+Training batch: 0 	 in epoch6 	 batch mse loss:0.0059
+2022-07-09 09:25:22 | epoch:    7/200, training time: 16.7s, inference time: 3.6s
+train mse loss: 3.3125, val mse loss: 8.2824, val mae loss: 0.9990, val rmse loss: 2.7322
+Training batch: 0 	 in epoch7 	 batch mse loss:0.0058
+2022-07-09 09:25:43 | epoch:    8/200, training time: 17.0s, inference time: 3.6s
+train mse loss: 3.2911, val mse loss: 7.8086, val mae loss: 0.9869, val rmse loss: 2.7464
+Training batch: 0 	 in epoch8 	 batch mse loss:0.0054
+2022-07-09 09:26:03 | epoch:    9/200, training time: 16.5s, inference time: 3.3s
+train mse loss: 3.2988, val mse loss: 7.4848, val mae loss: 1.0015, val rmse loss: 2.6989
+Training batch: 0 	 in epoch9 	 batch mse loss:0.0059
+2022-07-09 09:26:22 | epoch:   10/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.3143, val mse loss: 7.0867, val mae loss: 1.0121, val rmse loss: 2.5961
+Training batch: 0 	 in epoch10 	 batch mse loss:0.0058
+2022-07-09 09:26:42 | epoch:   11/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.2982, val mse loss: 7.3000, val mae loss: 1.0056, val rmse loss: 2.6098
+Training batch: 0 	 in epoch11 	 batch mse loss:0.0052
+2022-07-09 09:27:02 | epoch:   12/200, training time: 16.2s, inference time: 3.4s
+train mse loss: 3.3230, val mse loss: 7.8816, val mae loss: 0.9958, val rmse loss: 2.7432
+Training batch: 0 	 in epoch12 	 batch mse loss:0.0054
+2022-07-09 09:27:22 | epoch:   13/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.2904, val mse loss: 6.6800, val mae loss: 1.0109, val rmse loss: 2.5436
+Training batch: 0 	 in epoch13 	 batch mse loss:0.0052
+2022-07-09 09:27:42 | epoch:   14/200, training time: 16.5s, inference time: 3.3s
+train mse loss: 3.2618, val mse loss: 7.2255, val mae loss: 0.9934, val rmse loss: 2.6045
+Training batch: 0 	 in epoch14 	 batch mse loss:0.0057
+2022-07-09 09:28:02 | epoch:   15/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.2766, val mse loss: 7.3008, val mae loss: 0.9856, val rmse loss: 2.6512
+Training batch: 0 	 in epoch15 	 batch mse loss:0.0060
+2022-07-09 09:28:21 | epoch:   16/200, training time: 16.4s, inference time: 3.5s
+train mse loss: 3.2482, val mse loss: 7.2770, val mae loss: 0.9797, val rmse loss: 2.6465
+Training batch: 0 	 in epoch16 	 batch mse loss:0.0058
+2022-07-09 09:28:42 | epoch:   17/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.2618, val mse loss: 7.0439, val mae loss: 0.9819, val rmse loss: 2.5894
+Training batch: 0 	 in epoch17 	 batch mse loss:0.0049
+2022-07-09 09:29:02 | epoch:   18/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.2665, val mse loss: 7.3453, val mae loss: 0.9845, val rmse loss: 2.6719
+Training batch: 0 	 in epoch18 	 batch mse loss:0.0051
+2022-07-09 09:29:22 | epoch:   19/200, training time: 16.6s, inference time: 3.7s
+train mse loss: 3.2758, val mse loss: 6.9756, val mae loss: 1.0192, val rmse loss: 2.6037
+Training batch: 0 	 in epoch19 	 batch mse loss:0.0048
+2022-07-09 09:29:42 | epoch:   20/200, training time: 16.7s, inference time: 3.3s
+train mse loss: 3.2560, val mse loss: 6.8688, val mae loss: 0.9833, val rmse loss: 2.5495
+Training batch: 0 	 in epoch20 	 batch mse loss:0.0047
+2022-07-09 09:30:02 | epoch:   21/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.2398, val mse loss: 6.3097, val mae loss: 0.9742, val rmse loss: 2.4784
+Training batch: 0 	 in epoch21 	 batch mse loss:0.0053
+2022-07-09 09:30:22 | epoch:   22/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.2258, val mse loss: 6.9604, val mae loss: 0.9801, val rmse loss: 2.5357
+Training batch: 0 	 in epoch22 	 batch mse loss:0.0054
+2022-07-09 09:30:42 | epoch:   23/200, training time: 17.0s, inference time: 3.5s
+train mse loss: 3.2127, val mse loss: 6.7306, val mae loss: 0.9876, val rmse loss: 2.5269
+Training batch: 0 	 in epoch23 	 batch mse loss:0.0055
+2022-07-09 09:31:03 | epoch:   24/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.2074, val mse loss: 6.8430, val mae loss: 0.9836, val rmse loss: 2.5962
+Training batch: 0 	 in epoch24 	 batch mse loss:0.0053
+2022-07-09 09:31:23 | epoch:   25/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.2115, val mse loss: 6.3610, val mae loss: 0.9746, val rmse loss: 2.4398
+Training batch: 0 	 in epoch25 	 batch mse loss:0.0051
+2022-07-09 09:31:43 | epoch:   26/200, training time: 16.6s, inference time: 3.2s
+train mse loss: 3.2292, val mse loss: 6.8045, val mae loss: 0.9727, val rmse loss: 2.5793
+Training batch: 0 	 in epoch26 	 batch mse loss:0.0055
+2022-07-09 09:32:03 | epoch:   27/200, training time: 16.4s, inference time: 3.4s
+train mse loss: 3.2050, val mse loss: 6.8088, val mae loss: 0.9768, val rmse loss: 2.5711
+Training batch: 0 	 in epoch27 	 batch mse loss:0.0050
+2022-07-09 09:32:23 | epoch:   28/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.1831, val mse loss: 6.4694, val mae loss: 0.9710, val rmse loss: 2.4963
+Training batch: 0 	 in epoch28 	 batch mse loss:0.0052
+2022-07-09 09:32:43 | epoch:   29/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.1814, val mse loss: 6.6657, val mae loss: 0.9922, val rmse loss: 2.5489
+Training batch: 0 	 in epoch29 	 batch mse loss:0.0052
+2022-07-09 09:33:03 | epoch:   30/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.2021, val mse loss: 6.8132, val mae loss: 0.9754, val rmse loss: 2.5740
+Training batch: 0 	 in epoch30 	 batch mse loss:0.0050
+2022-07-09 09:33:23 | epoch:   31/200, training time: 16.7s, inference time: 3.6s
+train mse loss: 3.1967, val mse loss: 6.5588, val mae loss: 0.9720, val rmse loss: 2.4783
+Training batch: 0 	 in epoch31 	 batch mse loss:0.0053
+2022-07-09 09:33:43 | epoch:   32/200, training time: 16.8s, inference time: 3.3s
+train mse loss: 3.1779, val mse loss: 6.5236, val mae loss: 0.9803, val rmse loss: 2.5016
+Training batch: 0 	 in epoch32 	 batch mse loss:0.0052
+2022-07-09 09:34:03 | epoch:   33/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.1854, val mse loss: 6.6523, val mae loss: 0.9875, val rmse loss: 2.5313
+Training batch: 0 	 in epoch33 	 batch mse loss:0.0056
+2022-07-09 09:34:23 | epoch:   34/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.1855, val mse loss: 6.6955, val mae loss: 0.9881, val rmse loss: 2.5687
+Training batch: 0 	 in epoch34 	 batch mse loss:0.0052
+2022-07-09 09:34:43 | epoch:   35/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.1632, val mse loss: 6.8521, val mae loss: 0.9724, val rmse loss: 2.5952
+Training batch: 0 	 in epoch35 	 batch mse loss:0.0055
+2022-07-09 09:35:02 | epoch:   36/200, training time: 15.9s, inference time: 3.4s
+train mse loss: 3.1590, val mse loss: 6.7559, val mae loss: 0.9830, val rmse loss: 2.5253
+Training batch: 0 	 in epoch36 	 batch mse loss:0.0052
+2022-07-09 09:35:22 | epoch:   37/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.1741, val mse loss: 6.9276, val mae loss: 0.9803, val rmse loss: 2.5899
+Training batch: 0 	 in epoch37 	 batch mse loss:0.0052
+2022-07-09 09:35:43 | epoch:   38/200, training time: 17.0s, inference time: 3.4s
+train mse loss: 3.1684, val mse loss: 7.2356, val mae loss: 0.9671, val rmse loss: 2.6337
+Training batch: 0 	 in epoch38 	 batch mse loss:0.0050
+2022-07-09 09:36:03 | epoch:   39/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.1605, val mse loss: 6.6973, val mae loss: 0.9845, val rmse loss: 2.5418
+Training batch: 0 	 in epoch39 	 batch mse loss:0.0053
+2022-07-09 09:36:23 | epoch:   40/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.1568, val mse loss: 7.3664, val mae loss: 0.9738, val rmse loss: 2.6838
+Training batch: 0 	 in epoch40 	 batch mse loss:0.0053
+2022-07-09 09:36:43 | epoch:   41/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.1550, val mse loss: 6.9237, val mae loss: 0.9800, val rmse loss: 2.5403
+Training batch: 0 	 in epoch41 	 batch mse loss:0.0052
+2022-07-09 09:37:03 | epoch:   42/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.1493, val mse loss: 7.4190, val mae loss: 0.9774, val rmse loss: 2.6979
+Training batch: 0 	 in epoch42 	 batch mse loss:0.0046
+2022-07-09 09:37:24 | epoch:   43/200, training time: 16.6s, inference time: 3.7s
+train mse loss: 3.1647, val mse loss: 7.0482, val mae loss: 0.9845, val rmse loss: 2.6195
+Training batch: 0 	 in epoch43 	 batch mse loss:0.0048
+2022-07-09 09:37:44 | epoch:   44/200, training time: 16.5s, inference time: 3.2s
+train mse loss: 3.1314, val mse loss: 7.9022, val mae loss: 0.9607, val rmse loss: 2.7327
+Training batch: 0 	 in epoch44 	 batch mse loss:0.0046
+2022-07-09 09:38:03 | epoch:   45/200, training time: 16.5s, inference time: 3.2s
+train mse loss: 3.1341, val mse loss: 7.2266, val mae loss: 0.9805, val rmse loss: 2.6574
+Training batch: 0 	 in epoch45 	 batch mse loss:0.0047
+2022-07-09 09:38:23 | epoch:   46/200, training time: 16.4s, inference time: 3.5s
+train mse loss: 3.1353, val mse loss: 6.9989, val mae loss: 0.9730, val rmse loss: 2.5820
+Training batch: 0 	 in epoch46 	 batch mse loss:0.0054
+2022-07-09 09:38:43 | epoch:   47/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.1413, val mse loss: 9.6233, val mae loss: 1.0031, val rmse loss: 2.9450
+Training batch: 0 	 in epoch47 	 batch mse loss:0.0053
+2022-07-09 09:39:04 | epoch:   48/200, training time: 17.2s, inference time: 3.4s
+train mse loss: 3.1446, val mse loss: 8.1221, val mae loss: 0.9702, val rmse loss: 2.7572
+Training batch: 0 	 in epoch48 	 batch mse loss:0.0058
+2022-07-09 09:39:24 | epoch:   49/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.1403, val mse loss: 7.7259, val mae loss: 0.9733, val rmse loss: 2.7022
+Training batch: 0 	 in epoch49 	 batch mse loss:0.0048
+2022-07-09 09:39:45 | epoch:   50/200, training time: 16.9s, inference time: 3.6s
+train mse loss: 3.1284, val mse loss: 7.1928, val mae loss: 0.9717, val rmse loss: 2.6443
+Training batch: 0 	 in epoch50 	 batch mse loss:0.0051
+2022-07-09 09:40:05 | epoch:   51/200, training time: 16.9s, inference time: 3.6s
+train mse loss: 3.1113, val mse loss: 8.5641, val mae loss: 0.9736, val rmse loss: 2.8393
+Training batch: 0 	 in epoch51 	 batch mse loss:0.0051
+2022-07-09 09:40:25 | epoch:   52/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.1120, val mse loss: 7.7349, val mae loss: 0.9601, val rmse loss: 2.6803
+Training batch: 0 	 in epoch52 	 batch mse loss:0.0050
+2022-07-09 09:40:46 | epoch:   53/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.1127, val mse loss: 7.1793, val mae loss: 0.9729, val rmse loss: 2.5435
+Training batch: 0 	 in epoch53 	 batch mse loss:0.0045
+2022-07-09 09:41:06 | epoch:   54/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.1156, val mse loss: 7.4009, val mae loss: 0.9968, val rmse loss: 2.6684
+Training batch: 0 	 in epoch54 	 batch mse loss:0.0053
+2022-07-09 09:41:26 | epoch:   55/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.1261, val mse loss: 7.4272, val mae loss: 0.9736, val rmse loss: 2.6875
+Training batch: 0 	 in epoch55 	 batch mse loss:0.0048
+2022-07-09 09:41:47 | epoch:   56/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.1217, val mse loss: 7.7989, val mae loss: 0.9709, val rmse loss: 2.6918
+Training batch: 0 	 in epoch56 	 batch mse loss:0.0048
+2022-07-09 09:42:07 | epoch:   57/200, training time: 16.7s, inference time: 3.6s
+train mse loss: 3.1148, val mse loss: 7.7852, val mae loss: 0.9751, val rmse loss: 2.7256
+Training batch: 0 	 in epoch57 	 batch mse loss:0.0046
+2022-07-09 09:42:27 | epoch:   58/200, training time: 16.7s, inference time: 3.6s
+train mse loss: 3.1117, val mse loss: 8.9285, val mae loss: 0.9779, val rmse loss: 2.8358
+Training batch: 0 	 in epoch58 	 batch mse loss:0.0049
+2022-07-09 09:42:48 | epoch:   59/200, training time: 16.9s, inference time: 3.6s
+train mse loss: 3.0970, val mse loss: 8.0215, val mae loss: 0.9684, val rmse loss: 2.7194
+Training batch: 0 	 in epoch59 	 batch mse loss:0.0054
+2022-07-09 09:43:08 | epoch:   60/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.1237, val mse loss: 8.0507, val mae loss: 0.9734, val rmse loss: 2.7348
+Training batch: 0 	 in epoch60 	 batch mse loss:0.0045
+2022-07-09 09:43:28 | epoch:   61/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.1036, val mse loss: 8.8482, val mae loss: 0.9670, val rmse loss: 2.8293
+Training batch: 0 	 in epoch61 	 batch mse loss:0.0049
+2022-07-09 09:43:48 | epoch:   62/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0983, val mse loss: 7.8393, val mae loss: 0.9865, val rmse loss: 2.7083
+Training batch: 0 	 in epoch62 	 batch mse loss:0.0049
+2022-07-09 09:44:08 | epoch:   63/200, training time: 16.2s, inference time: 3.5s
+train mse loss: 3.1042, val mse loss: 9.9674, val mae loss: 0.9952, val rmse loss: 3.0448
+Training batch: 0 	 in epoch63 	 batch mse loss:0.0051
+2022-07-09 09:44:28 | epoch:   64/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.0985, val mse loss: 9.6463, val mae loss: 0.9756, val rmse loss: 2.9267
+Training batch: 0 	 in epoch64 	 batch mse loss:0.0053
+2022-07-09 09:44:48 | epoch:   65/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0928, val mse loss: 9.5730, val mae loss: 0.9802, val rmse loss: 2.9061
+Training batch: 0 	 in epoch65 	 batch mse loss:0.0041
+2022-07-09 09:45:09 | epoch:   66/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.0857, val mse loss: 8.3595, val mae loss: 0.9615, val rmse loss: 2.7661
+Training batch: 0 	 in epoch66 	 batch mse loss:0.0043
+2022-07-09 09:45:29 | epoch:   67/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0845, val mse loss: 9.4555, val mae loss: 0.9893, val rmse loss: 2.8696
+Training batch: 0 	 in epoch67 	 batch mse loss:0.0049
+2022-07-09 09:45:49 | epoch:   68/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0954, val mse loss: 8.8910, val mae loss: 0.9973, val rmse loss: 2.8610
+Training batch: 0 	 in epoch68 	 batch mse loss:0.0048
+2022-07-09 09:46:09 | epoch:   69/200, training time: 16.6s, inference time: 3.3s
+train mse loss: 3.0902, val mse loss: 8.8248, val mae loss: 0.9769, val rmse loss: 2.7900
+Training batch: 0 	 in epoch69 	 batch mse loss:0.0049
+2022-07-09 09:46:29 | epoch:   70/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0914, val mse loss: 8.9075, val mae loss: 0.9654, val rmse loss: 2.8243
+Training batch: 0 	 in epoch70 	 batch mse loss:0.0051
+2022-07-09 09:46:48 | epoch:   71/200, training time: 16.3s, inference time: 3.4s
+train mse loss: 3.0787, val mse loss: 8.5365, val mae loss: 0.9787, val rmse loss: 2.7037
+Training batch: 0 	 in epoch71 	 batch mse loss:0.0049
+2022-07-09 09:47:09 | epoch:   72/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0824, val mse loss: 9.7079, val mae loss: 0.9727, val rmse loss: 2.9006
+Training batch: 0 	 in epoch72 	 batch mse loss:0.0047
+2022-07-09 09:47:29 | epoch:   73/200, training time: 16.7s, inference time: 3.3s
+train mse loss: 3.0887, val mse loss: 8.6979, val mae loss: 0.9759, val rmse loss: 2.7456
+Training batch: 0 	 in epoch73 	 batch mse loss:0.0047
+2022-07-09 09:47:49 | epoch:   74/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0802, val mse loss: 7.7939, val mae loss: 0.9644, val rmse loss: 2.6801
+Training batch: 0 	 in epoch74 	 batch mse loss:0.0047
+2022-07-09 09:48:09 | epoch:   75/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0824, val mse loss: 9.4641, val mae loss: 0.9900, val rmse loss: 2.8432
+Training batch: 0 	 in epoch75 	 batch mse loss:0.0054
+2022-07-09 09:48:29 | epoch:   76/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0859, val mse loss: 8.0358, val mae loss: 0.9828, val rmse loss: 2.6741
+Training batch: 0 	 in epoch76 	 batch mse loss:0.0047
+2022-07-09 09:48:50 | epoch:   77/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0836, val mse loss: 8.3118, val mae loss: 0.9633, val rmse loss: 2.7538
+Training batch: 0 	 in epoch77 	 batch mse loss:0.0055
+2022-07-09 09:49:10 | epoch:   78/200, training time: 16.7s, inference time: 3.3s
+train mse loss: 3.0790, val mse loss: 8.2105, val mae loss: 0.9662, val rmse loss: 2.6882
+Training batch: 0 	 in epoch78 	 batch mse loss:0.0049
+2022-07-09 09:49:30 | epoch:   79/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0789, val mse loss: 9.5213, val mae loss: 0.9712, val rmse loss: 2.7995
+Training batch: 0 	 in epoch79 	 batch mse loss:0.0050
+2022-07-09 09:49:50 | epoch:   80/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0692, val mse loss: 9.1876, val mae loss: 0.9740, val rmse loss: 2.7802
+Training batch: 0 	 in epoch80 	 batch mse loss:0.0055
+2022-07-09 09:50:11 | epoch:   81/200, training time: 17.3s, inference time: 3.7s
+train mse loss: 3.0863, val mse loss: 8.0302, val mae loss: 0.9735, val rmse loss: 2.6845
+Training batch: 0 	 in epoch81 	 batch mse loss:0.0046
+2022-07-09 09:50:32 | epoch:   82/200, training time: 17.3s, inference time: 3.4s
+train mse loss: 3.0738, val mse loss: 9.1397, val mae loss: 0.9803, val rmse loss: 2.8045
+Training batch: 0 	 in epoch82 	 batch mse loss:0.0051
+2022-07-09 09:50:52 | epoch:   83/200, training time: 16.9s, inference time: 3.6s
+train mse loss: 3.0808, val mse loss: 8.7389, val mae loss: 0.9606, val rmse loss: 2.7188
+Training batch: 0 	 in epoch83 	 batch mse loss:0.0054
+2022-07-09 09:51:13 | epoch:   84/200, training time: 17.4s, inference time: 3.4s
+train mse loss: 3.0752, val mse loss: 10.1569, val mae loss: 0.9773, val rmse loss: 2.9727
+Training batch: 0 	 in epoch84 	 batch mse loss:0.0046
+2022-07-09 09:51:33 | epoch:   85/200, training time: 16.7s, inference time: 3.2s
+train mse loss: 3.0667, val mse loss: 9.7847, val mae loss: 0.9645, val rmse loss: 2.9003
+Training batch: 0 	 in epoch85 	 batch mse loss:0.0054
+2022-07-09 09:51:53 | epoch:   86/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.0791, val mse loss: 8.4275, val mae loss: 0.9667, val rmse loss: 2.7223
+Training batch: 0 	 in epoch86 	 batch mse loss:0.0060
+2022-07-09 09:52:12 | epoch:   87/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.0731, val mse loss: 7.7104, val mae loss: 0.9726, val rmse loss: 2.6340
+Training batch: 0 	 in epoch87 	 batch mse loss:0.0050
+2022-07-09 09:52:33 | epoch:   88/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.0669, val mse loss: 9.2135, val mae loss: 0.9747, val rmse loss: 2.8315
+Training batch: 0 	 in epoch88 	 batch mse loss:0.0050
+2022-07-09 09:52:53 | epoch:   89/200, training time: 17.0s, inference time: 3.6s
+train mse loss: 3.0663, val mse loss: 8.9702, val mae loss: 0.9624, val rmse loss: 2.7747
+Training batch: 0 	 in epoch89 	 batch mse loss:0.0048
+2022-07-09 09:53:13 | epoch:   90/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.0615, val mse loss: 8.1511, val mae loss: 0.9767, val rmse loss: 2.6492
+Training batch: 0 	 in epoch90 	 batch mse loss:0.0043
+2022-07-09 09:53:34 | epoch:   91/200, training time: 17.0s, inference time: 3.3s
+train mse loss: 3.0580, val mse loss: 8.1924, val mae loss: 0.9694, val rmse loss: 2.6957
+Training batch: 0 	 in epoch91 	 batch mse loss:0.0052
+2022-07-09 09:53:53 | epoch:   92/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0680, val mse loss: 7.9094, val mae loss: 0.9702, val rmse loss: 2.6384
+Training batch: 0 	 in epoch92 	 batch mse loss:0.0047
+2022-07-09 09:54:12 | epoch:   93/200, training time: 15.7s, inference time: 3.2s
+train mse loss: 3.0591, val mse loss: 9.2141, val mae loss: 0.9697, val rmse loss: 2.7969
+Training batch: 0 	 in epoch93 	 batch mse loss:0.0050
+2022-07-09 09:54:32 | epoch:   94/200, training time: 16.5s, inference time: 3.5s
+train mse loss: 3.0570, val mse loss: 7.9125, val mae loss: 0.9703, val rmse loss: 2.6634
+Training batch: 0 	 in epoch94 	 batch mse loss:0.0044
+2022-07-09 09:54:52 | epoch:   95/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0736, val mse loss: 7.8966, val mae loss: 0.9716, val rmse loss: 2.6626
+Training batch: 0 	 in epoch95 	 batch mse loss:0.0052
+2022-07-09 09:55:12 | epoch:   96/200, training time: 16.6s, inference time: 3.3s
+train mse loss: 3.0536, val mse loss: 7.9266, val mae loss: 0.9679, val rmse loss: 2.6548
+Training batch: 0 	 in epoch96 	 batch mse loss:0.0049
+2022-07-09 09:55:33 | epoch:   97/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.0543, val mse loss: 7.5368, val mae loss: 0.9770, val rmse loss: 2.5924
+Training batch: 0 	 in epoch97 	 batch mse loss:0.0047
+2022-07-09 09:55:52 | epoch:   98/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.0643, val mse loss: 8.1329, val mae loss: 0.9684, val rmse loss: 2.6490
+Training batch: 0 	 in epoch98 	 batch mse loss:0.0055
+2022-07-09 09:56:12 | epoch:   99/200, training time: 16.5s, inference time: 3.4s
+train mse loss: 3.0579, val mse loss: 7.5395, val mae loss: 0.9699, val rmse loss: 2.6181
+Training batch: 0 	 in epoch99 	 batch mse loss:0.0052
+2022-07-09 09:56:32 | epoch:  100/200, training time: 16.6s, inference time: 3.4s
+train mse loss: 3.0719, val mse loss: 7.8805, val mae loss: 0.9790, val rmse loss: 2.6470
+Training batch: 0 	 in epoch100 	 batch mse loss:0.0051
+2022-07-09 09:56:53 | epoch:  101/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0665, val mse loss: 9.1399, val mae loss: 0.9707, val rmse loss: 2.7945
+Training batch: 0 	 in epoch101 	 batch mse loss:0.0057
+2022-07-09 09:57:13 | epoch:  102/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0552, val mse loss: 7.9143, val mae loss: 0.9621, val rmse loss: 2.6720
+Training batch: 0 	 in epoch102 	 batch mse loss:0.0056
+2022-07-09 09:57:33 | epoch:  103/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0431, val mse loss: 7.7922, val mae loss: 0.9581, val rmse loss: 2.6395
+Training batch: 0 	 in epoch103 	 batch mse loss:0.0047
+2022-07-09 09:57:53 | epoch:  104/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0763, val mse loss: 7.7660, val mae loss: 0.9591, val rmse loss: 2.6449
+Training batch: 0 	 in epoch104 	 batch mse loss:0.0050
+2022-07-09 09:58:13 | epoch:  105/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0537, val mse loss: 7.7923, val mae loss: 0.9698, val rmse loss: 2.6221
+Training batch: 0 	 in epoch105 	 batch mse loss:0.0053
+2022-07-09 09:58:32 | epoch:  106/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0449, val mse loss: 7.4811, val mae loss: 0.9647, val rmse loss: 2.5993
+Training batch: 0 	 in epoch106 	 batch mse loss:0.0052
+2022-07-09 09:58:53 | epoch:  107/200, training time: 16.6s, inference time: 3.4s
+train mse loss: 3.0537, val mse loss: 7.8140, val mae loss: 0.9712, val rmse loss: 2.6236
+Training batch: 0 	 in epoch107 	 batch mse loss:0.0045
+2022-07-09 09:59:13 | epoch:  108/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0655, val mse loss: 8.3727, val mae loss: 0.9769, val rmse loss: 2.7073
+Training batch: 0 	 in epoch108 	 batch mse loss:0.0049
+2022-07-09 09:59:33 | epoch:  109/200, training time: 16.6s, inference time: 3.6s
+train mse loss: 3.0733, val mse loss: 7.8329, val mae loss: 0.9593, val rmse loss: 2.6268
+Training batch: 0 	 in epoch109 	 batch mse loss:0.0046
+2022-07-09 09:59:53 | epoch:  110/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.0634, val mse loss: 7.5498, val mae loss: 0.9644, val rmse loss: 2.5795
+Training batch: 0 	 in epoch110 	 batch mse loss:0.0048
+2022-07-09 10:00:13 | epoch:  111/200, training time: 16.6s, inference time: 3.4s
+train mse loss: 3.0434, val mse loss: 8.0571, val mae loss: 0.9690, val rmse loss: 2.6749
+Training batch: 0 	 in epoch111 	 batch mse loss:0.0048
+2022-07-09 10:00:33 | epoch:  112/200, training time: 16.3s, inference time: 3.2s
+train mse loss: 3.0515, val mse loss: 7.0931, val mae loss: 0.9648, val rmse loss: 2.5435
+Training batch: 0 	 in epoch112 	 batch mse loss:0.0049
+2022-07-09 10:00:53 | epoch:  113/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0596, val mse loss: 7.1355, val mae loss: 0.9763, val rmse loss: 2.5630
+Training batch: 0 	 in epoch113 	 batch mse loss:0.0046
+2022-07-09 10:01:13 | epoch:  114/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0587, val mse loss: 8.7063, val mae loss: 0.9735, val rmse loss: 2.7610
+Training batch: 0 	 in epoch114 	 batch mse loss:0.0047
+2022-07-09 10:01:33 | epoch:  115/200, training time: 16.5s, inference time: 3.3s
+train mse loss: 3.0566, val mse loss: 7.1610, val mae loss: 0.9603, val rmse loss: 2.5293
+Training batch: 0 	 in epoch115 	 batch mse loss:0.0047
+2022-07-09 10:01:52 | epoch:  116/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.0545, val mse loss: 7.5742, val mae loss: 0.9674, val rmse loss: 2.6277
+Training batch: 0 	 in epoch116 	 batch mse loss:0.0050
+2022-07-09 10:02:12 | epoch:  117/200, training time: 16.4s, inference time: 3.3s
+train mse loss: 3.0605, val mse loss: 7.8061, val mae loss: 0.9794, val rmse loss: 2.6179
+Training batch: 0 	 in epoch117 	 batch mse loss:0.0043
+2022-07-09 10:02:32 | epoch:  118/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0535, val mse loss: 6.9580, val mae loss: 0.9679, val rmse loss: 2.5273
+Training batch: 0 	 in epoch118 	 batch mse loss:0.0047
+2022-07-09 10:02:53 | epoch:  119/200, training time: 16.9s, inference time: 3.6s
+train mse loss: 3.0451, val mse loss: 7.1786, val mae loss: 0.9620, val rmse loss: 2.5580
+Training batch: 0 	 in epoch119 	 batch mse loss:0.0052
+2022-07-09 10:03:13 | epoch:  120/200, training time: 16.8s, inference time: 3.3s
+train mse loss: 3.0490, val mse loss: 7.0159, val mae loss: 0.9648, val rmse loss: 2.5658
+Training batch: 0 	 in epoch120 	 batch mse loss:0.0046
+2022-07-09 10:03:33 | epoch:  121/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0584, val mse loss: 6.9841, val mae loss: 0.9595, val rmse loss: 2.5379
+Training batch: 0 	 in epoch121 	 batch mse loss:0.0048
+2022-07-09 10:03:53 | epoch:  122/200, training time: 16.3s, inference time: 3.2s
+train mse loss: 3.0380, val mse loss: 7.0869, val mae loss: 0.9594, val rmse loss: 2.5384
+Training batch: 0 	 in epoch122 	 batch mse loss:0.0050
+2022-07-09 10:04:13 | epoch:  123/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0305, val mse loss: 7.0995, val mae loss: 0.9651, val rmse loss: 2.5195
+Training batch: 0 	 in epoch123 	 batch mse loss:0.0047
+2022-07-09 10:04:33 | epoch:  124/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.0448, val mse loss: 6.6957, val mae loss: 0.9654, val rmse loss: 2.5256
+Training batch: 0 	 in epoch124 	 batch mse loss:0.0054
+2022-07-09 10:04:53 | epoch:  125/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0510, val mse loss: 6.8313, val mae loss: 0.9579, val rmse loss: 2.5212
+Training batch: 0 	 in epoch125 	 batch mse loss:0.0049
+2022-07-09 10:05:14 | epoch:  126/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0493, val mse loss: 6.6545, val mae loss: 0.9669, val rmse loss: 2.5324
+Training batch: 0 	 in epoch126 	 batch mse loss:0.0050
+2022-07-09 10:05:34 | epoch:  127/200, training time: 16.8s, inference time: 3.3s
+train mse loss: 3.0636, val mse loss: 6.6729, val mae loss: 0.9662, val rmse loss: 2.5040
+Training batch: 0 	 in epoch127 	 batch mse loss:0.0053
+2022-07-09 10:05:53 | epoch:  128/200, training time: 16.3s, inference time: 3.4s
+train mse loss: 3.0463, val mse loss: 6.4292, val mae loss: 0.9695, val rmse loss: 2.4555
+Training batch: 0 	 in epoch128 	 batch mse loss:0.0048
+2022-07-09 10:06:13 | epoch:  129/200, training time: 16.8s, inference time: 3.3s
+train mse loss: 3.0528, val mse loss: 6.8758, val mae loss: 0.9581, val rmse loss: 2.5446
+Training batch: 0 	 in epoch129 	 batch mse loss:0.0050
+2022-07-09 10:06:34 | epoch:  130/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0588, val mse loss: 6.4101, val mae loss: 0.9713, val rmse loss: 2.4610
+Training batch: 0 	 in epoch130 	 batch mse loss:0.0055
+2022-07-09 10:06:54 | epoch:  131/200, training time: 16.6s, inference time: 3.3s
+train mse loss: 3.0474, val mse loss: 6.4417, val mae loss: 0.9619, val rmse loss: 2.4397
+Training batch: 0 	 in epoch131 	 batch mse loss:0.0046
+2022-07-09 10:07:14 | epoch:  132/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0459, val mse loss: 6.8897, val mae loss: 0.9690, val rmse loss: 2.5096
+Training batch: 0 	 in epoch132 	 batch mse loss:0.0050
+2022-07-09 10:07:34 | epoch:  133/200, training time: 16.6s, inference time: 3.4s
+train mse loss: 3.0450, val mse loss: 6.5877, val mae loss: 0.9725, val rmse loss: 2.4701
+Training batch: 0 	 in epoch133 	 batch mse loss:0.0050
+2022-07-09 10:07:54 | epoch:  134/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0434, val mse loss: 6.9018, val mae loss: 0.9632, val rmse loss: 2.4994
+Training batch: 0 	 in epoch134 	 batch mse loss:0.0051
+2022-07-09 10:08:14 | epoch:  135/200, training time: 16.6s, inference time: 3.2s
+train mse loss: 3.0530, val mse loss: 6.8501, val mae loss: 0.9745, val rmse loss: 2.5057
+Training batch: 0 	 in epoch135 	 batch mse loss:0.0055
+2022-07-09 10:08:34 | epoch:  136/200, training time: 16.7s, inference time: 3.2s
+train mse loss: 3.0485, val mse loss: 6.3778, val mae loss: 0.9591, val rmse loss: 2.4769
+Training batch: 0 	 in epoch136 	 batch mse loss:0.0047
+2022-07-09 10:08:54 | epoch:  137/200, training time: 16.8s, inference time: 3.4s
+train mse loss: 3.0349, val mse loss: 6.8246, val mae loss: 0.9689, val rmse loss: 2.5274
+Training batch: 0 	 in epoch137 	 batch mse loss:0.0047
+2022-07-09 10:09:14 | epoch:  138/200, training time: 16.6s, inference time: 3.4s
+train mse loss: 3.0388, val mse loss: 6.4633, val mae loss: 0.9696, val rmse loss: 2.4863
+Training batch: 0 	 in epoch138 	 batch mse loss:0.0053
+2022-07-09 10:09:35 | epoch:  139/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0413, val mse loss: 6.4451, val mae loss: 0.9649, val rmse loss: 2.4689
+Training batch: 0 	 in epoch139 	 batch mse loss:0.0047
+2022-07-09 10:09:54 | epoch:  140/200, training time: 16.4s, inference time: 3.2s
+train mse loss: 3.0598, val mse loss: 6.3091, val mae loss: 0.9675, val rmse loss: 2.4391
+Training batch: 0 	 in epoch140 	 batch mse loss:0.0056
+2022-07-09 10:10:14 | epoch:  141/200, training time: 16.3s, inference time: 3.2s
+train mse loss: 3.0476, val mse loss: 6.2345, val mae loss: 0.9667, val rmse loss: 2.4393
+Training batch: 0 	 in epoch141 	 batch mse loss:0.0048
+2022-07-09 10:10:34 | epoch:  142/200, training time: 16.6s, inference time: 3.5s
+train mse loss: 3.0520, val mse loss: 6.7075, val mae loss: 0.9692, val rmse loss: 2.4404
+Training batch: 0 	 in epoch142 	 batch mse loss:0.0047
+2022-07-09 10:10:54 | epoch:  143/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0378, val mse loss: 6.0955, val mae loss: 0.9613, val rmse loss: 2.3953
+Training batch: 0 	 in epoch143 	 batch mse loss:0.0050
+2022-07-09 10:11:15 | epoch:  144/200, training time: 16.7s, inference time: 3.6s
+train mse loss: 3.0510, val mse loss: 6.1931, val mae loss: 0.9581, val rmse loss: 2.4098
+Training batch: 0 	 in epoch144 	 batch mse loss:0.0048
+2022-07-09 10:11:35 | epoch:  145/200, training time: 16.7s, inference time: 3.7s
+train mse loss: 3.0425, val mse loss: 6.4300, val mae loss: 0.9540, val rmse loss: 2.4405
+Training batch: 0 	 in epoch145 	 batch mse loss:0.0047
+2022-07-09 10:11:55 | epoch:  146/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0512, val mse loss: 6.3437, val mae loss: 0.9592, val rmse loss: 2.4722
+Training batch: 0 	 in epoch146 	 batch mse loss:0.0055
+2022-07-09 10:12:16 | epoch:  147/200, training time: 17.1s, inference time: 3.5s
+train mse loss: 3.0311, val mse loss: 6.1670, val mae loss: 0.9553, val rmse loss: 2.4385
+Training batch: 0 	 in epoch147 	 batch mse loss:0.0051
+2022-07-09 10:12:37 | epoch:  148/200, training time: 17.2s, inference time: 3.5s
+train mse loss: 3.0449, val mse loss: 6.3543, val mae loss: 0.9676, val rmse loss: 2.4263
+Training batch: 0 	 in epoch148 	 batch mse loss:0.0048
+2022-07-09 10:12:57 | epoch:  149/200, training time: 17.2s, inference time: 3.5s
+train mse loss: 3.0300, val mse loss: 6.4774, val mae loss: 0.9653, val rmse loss: 2.5025
+Training batch: 0 	 in epoch149 	 batch mse loss:0.0051
+2022-07-09 10:13:18 | epoch:  150/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0484, val mse loss: 6.0585, val mae loss: 0.9685, val rmse loss: 2.4178
+Training batch: 0 	 in epoch150 	 batch mse loss:0.0051
+2022-07-09 10:13:38 | epoch:  151/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0412, val mse loss: 6.3324, val mae loss: 0.9597, val rmse loss: 2.4492
+Training batch: 0 	 in epoch151 	 batch mse loss:0.0052
+2022-07-09 10:13:58 | epoch:  152/200, training time: 17.0s, inference time: 3.3s
+train mse loss: 3.0277, val mse loss: 6.1099, val mae loss: 0.9592, val rmse loss: 2.4213
+Training batch: 0 	 in epoch152 	 batch mse loss:0.0049
+2022-07-09 10:14:18 | epoch:  153/200, training time: 16.3s, inference time: 3.3s
+train mse loss: 3.0374, val mse loss: 6.1947, val mae loss: 0.9676, val rmse loss: 2.4334
+Training batch: 0 	 in epoch153 	 batch mse loss:0.0048
+2022-07-09 10:14:38 | epoch:  154/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0357, val mse loss: 5.9857, val mae loss: 0.9590, val rmse loss: 2.3931
+Training batch: 0 	 in epoch154 	 batch mse loss:0.0049
+2022-07-09 10:14:59 | epoch:  155/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0298, val mse loss: 6.0971, val mae loss: 0.9598, val rmse loss: 2.4077
+Training batch: 0 	 in epoch155 	 batch mse loss:0.0049
+2022-07-09 10:15:19 | epoch:  156/200, training time: 17.0s, inference time: 3.6s
+train mse loss: 3.0334, val mse loss: 6.3073, val mae loss: 0.9669, val rmse loss: 2.4376
+Training batch: 0 	 in epoch156 	 batch mse loss:0.0049
+2022-07-09 10:15:39 | epoch:  157/200, training time: 16.4s, inference time: 3.4s
+train mse loss: 3.0489, val mse loss: 6.5497, val mae loss: 0.9822, val rmse loss: 2.4819
+Training batch: 0 	 in epoch157 	 batch mse loss:0.0045
+2022-07-09 10:15:59 | epoch:  158/200, training time: 16.5s, inference time: 3.2s
+train mse loss: 3.0375, val mse loss: 6.1236, val mae loss: 0.9774, val rmse loss: 2.3822
+Training batch: 0 	 in epoch158 	 batch mse loss:0.0044
+2022-07-09 10:16:19 | epoch:  159/200, training time: 16.6s, inference time: 3.3s
+train mse loss: 3.0354, val mse loss: 5.9488, val mae loss: 0.9618, val rmse loss: 2.3604
+Training batch: 0 	 in epoch159 	 batch mse loss:0.0047
+2022-07-09 10:16:39 | epoch:  160/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0392, val mse loss: 6.0001, val mae loss: 0.9629, val rmse loss: 2.3886
+Training batch: 0 	 in epoch160 	 batch mse loss:0.0053
+2022-07-09 10:16:59 | epoch:  161/200, training time: 16.8s, inference time: 3.6s
+train mse loss: 3.0260, val mse loss: 6.0412, val mae loss: 0.9582, val rmse loss: 2.4050
+Training batch: 0 	 in epoch161 	 batch mse loss:0.0056
+2022-07-09 10:17:20 | epoch:  162/200, training time: 16.6s, inference time: 3.6s
+train mse loss: 3.0280, val mse loss: 5.9932, val mae loss: 0.9576, val rmse loss: 2.4082
+Training batch: 0 	 in epoch162 	 batch mse loss:0.0051
+2022-07-09 10:17:40 | epoch:  163/200, training time: 16.7s, inference time: 3.3s
+train mse loss: 3.0398, val mse loss: 6.1196, val mae loss: 0.9699, val rmse loss: 2.3989
+Training batch: 0 	 in epoch163 	 batch mse loss:0.0045
+2022-07-09 10:18:00 | epoch:  164/200, training time: 16.7s, inference time: 3.2s
+train mse loss: 3.0292, val mse loss: 5.9564, val mae loss: 0.9601, val rmse loss: 2.4018
+Training batch: 0 	 in epoch164 	 batch mse loss:0.0052
+2022-07-09 10:18:19 | epoch:  165/200, training time: 16.3s, inference time: 3.3s
+train mse loss: 3.0400, val mse loss: 5.9103, val mae loss: 0.9680, val rmse loss: 2.3401
+Training batch: 0 	 in epoch165 	 batch mse loss:0.0052
+2022-07-09 10:18:39 | epoch:  166/200, training time: 15.8s, inference time: 3.4s
+train mse loss: 3.0367, val mse loss: 5.9118, val mae loss: 0.9733, val rmse loss: 2.3509
+Training batch: 0 	 in epoch166 	 batch mse loss:0.0050
+2022-07-09 10:18:59 | epoch:  167/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0421, val mse loss: 6.0310, val mae loss: 0.9669, val rmse loss: 2.3812
+Training batch: 0 	 in epoch167 	 batch mse loss:0.0047
+2022-07-09 10:19:20 | epoch:  168/200, training time: 17.1s, inference time: 3.5s
+train mse loss: 3.0364, val mse loss: 5.9193, val mae loss: 0.9701, val rmse loss: 2.3986
+Training batch: 0 	 in epoch168 	 batch mse loss:0.0047
+2022-07-09 10:19:40 | epoch:  169/200, training time: 16.9s, inference time: 3.7s
+train mse loss: 3.0369, val mse loss: 5.7528, val mae loss: 0.9581, val rmse loss: 2.3617
+Training batch: 0 	 in epoch169 	 batch mse loss:0.0047
+2022-07-09 10:20:01 | epoch:  170/200, training time: 17.3s, inference time: 3.8s
+train mse loss: 3.0294, val mse loss: 5.7480, val mae loss: 0.9646, val rmse loss: 2.3542
+Training batch: 0 	 in epoch170 	 batch mse loss:0.0048
+2022-07-09 10:20:23 | epoch:  171/200, training time: 17.8s, inference time: 3.5s
+train mse loss: 3.0342, val mse loss: 5.8373, val mae loss: 0.9673, val rmse loss: 2.3620
+Training batch: 0 	 in epoch171 	 batch mse loss:0.0047
+2022-07-09 10:20:44 | epoch:  172/200, training time: 17.9s, inference time: 3.9s
+train mse loss: 3.0229, val mse loss: 5.7886, val mae loss: 0.9615, val rmse loss: 2.3370
+Training batch: 0 	 in epoch172 	 batch mse loss:0.0046
+2022-07-09 10:21:06 | epoch:  173/200, training time: 18.0s, inference time: 4.0s
+train mse loss: 3.0244, val mse loss: 5.9433, val mae loss: 0.9807, val rmse loss: 2.3774
+Training batch: 0 	 in epoch173 	 batch mse loss:0.0049
+2022-07-09 10:21:29 | epoch:  174/200, training time: 18.1s, inference time: 4.1s
+train mse loss: 3.0414, val mse loss: 5.9123, val mae loss: 0.9657, val rmse loss: 2.3886
+Training batch: 0 	 in epoch174 	 batch mse loss:0.0050
+2022-07-09 10:21:50 | epoch:  175/200, training time: 17.3s, inference time: 3.7s
+train mse loss: 3.0307, val mse loss: 5.7228, val mae loss: 0.9667, val rmse loss: 2.3527
+Training batch: 0 	 in epoch175 	 batch mse loss:0.0050
+2022-07-09 10:22:10 | epoch:  176/200, training time: 17.2s, inference time: 3.3s
+train mse loss: 3.0347, val mse loss: 5.7619, val mae loss: 0.9669, val rmse loss: 2.3710
+Training batch: 0 	 in epoch176 	 batch mse loss:0.0044
+2022-07-09 10:22:30 | epoch:  177/200, training time: 16.9s, inference time: 3.5s
+train mse loss: 3.0322, val mse loss: 5.8557, val mae loss: 0.9642, val rmse loss: 2.3872
+Training batch: 0 	 in epoch177 	 batch mse loss:0.0046
+2022-07-09 10:22:51 | epoch:  178/200, training time: 16.9s, inference time: 3.4s
+train mse loss: 3.0317, val mse loss: 5.7030, val mae loss: 0.9632, val rmse loss: 2.3488
+Training batch: 0 	 in epoch178 	 batch mse loss:0.0051
+2022-07-09 10:23:11 | epoch:  179/200, training time: 16.8s, inference time: 3.3s
+train mse loss: 3.0432, val mse loss: 5.6600, val mae loss: 0.9710, val rmse loss: 2.3440
+Training batch: 0 	 in epoch179 	 batch mse loss:0.0051
+2022-07-09 10:23:32 | epoch:  180/200, training time: 16.8s, inference time: 3.8s
+train mse loss: 3.0430, val mse loss: 5.8866, val mae loss: 0.9665, val rmse loss: 2.3954
+Training batch: 0 	 in epoch180 	 batch mse loss:0.0047
+2022-07-09 10:23:53 | epoch:  181/200, training time: 17.5s, inference time: 3.5s
+train mse loss: 3.0285, val mse loss: 5.7565, val mae loss: 0.9751, val rmse loss: 2.3499
+Training batch: 0 	 in epoch181 	 batch mse loss:0.0050
+2022-07-09 10:24:12 | epoch:  182/200, training time: 15.6s, inference time: 4.0s
+train mse loss: 3.0326, val mse loss: 5.8120, val mae loss: 0.9616, val rmse loss: 2.3513
+Training batch: 0 	 in epoch182 	 batch mse loss:0.0050
+2022-07-09 10:24:35 | epoch:  183/200, training time: 18.8s, inference time: 4.2s
+train mse loss: 3.0436, val mse loss: 5.6441, val mae loss: 0.9625, val rmse loss: 2.3264
+Training batch: 0 	 in epoch183 	 batch mse loss:0.0046
+2022-07-09 10:24:57 | epoch:  184/200, training time: 18.4s, inference time: 3.6s
+train mse loss: 3.0362, val mse loss: 5.6826, val mae loss: 0.9636, val rmse loss: 2.3331
+Training batch: 0 	 in epoch184 	 batch mse loss:0.0047
+2022-07-09 10:25:19 | epoch:  185/200, training time: 17.9s, inference time: 4.1s
+train mse loss: 3.0240, val mse loss: 5.6628, val mae loss: 0.9602, val rmse loss: 2.3553
+Training batch: 0 	 in epoch185 	 batch mse loss:0.0050
+2022-07-09 10:25:41 | epoch:  186/200, training time: 18.2s, inference time: 4.0s
+train mse loss: 3.0197, val mse loss: 5.7475, val mae loss: 0.9607, val rmse loss: 2.3298
+Training batch: 0 	 in epoch186 	 batch mse loss:0.0048
+2022-07-09 10:26:04 | epoch:  187/200, training time: 18.8s, inference time: 3.7s
+train mse loss: 3.0262, val mse loss: 5.7549, val mae loss: 0.9605, val rmse loss: 2.3666
+Training batch: 0 	 in epoch187 	 batch mse loss:0.0048
+2022-07-09 10:26:26 | epoch:  188/200, training time: 18.5s, inference time: 4.0s
+train mse loss: 3.0209, val mse loss: 5.5423, val mae loss: 0.9569, val rmse loss: 2.3354
+Training batch: 0 	 in epoch188 	 batch mse loss:0.0055
+2022-07-09 10:26:49 | epoch:  189/200, training time: 18.8s, inference time: 4.1s
+train mse loss: 3.0280, val mse loss: 5.6939, val mae loss: 0.9703, val rmse loss: 2.3368
+Training batch: 0 	 in epoch189 	 batch mse loss:0.0046
+2022-07-09 10:27:10 | epoch:  190/200, training time: 17.5s, inference time: 3.6s
+train mse loss: 3.0315, val mse loss: 5.6088, val mae loss: 0.9624, val rmse loss: 2.3276
+Training batch: 0 	 in epoch190 	 batch mse loss:0.0046
+2022-07-09 10:27:31 | epoch:  191/200, training time: 17.6s, inference time: 3.4s
+train mse loss: 3.0364, val mse loss: 5.6320, val mae loss: 0.9534, val rmse loss: 2.3348
+Training batch: 0 	 in epoch191 	 batch mse loss:0.0047
+2022-07-09 10:27:52 | epoch:  192/200, training time: 17.2s, inference time: 3.5s
+train mse loss: 3.0316, val mse loss: 5.6595, val mae loss: 0.9593, val rmse loss: 2.3455
+Training batch: 0 	 in epoch192 	 batch mse loss:0.0043
+2022-07-09 10:28:13 | epoch:  193/200, training time: 17.0s, inference time: 4.3s
+train mse loss: 3.0366, val mse loss: 5.5777, val mae loss: 0.9622, val rmse loss: 2.3152
+Training batch: 0 	 in epoch193 	 batch mse loss:0.0046
+2022-07-09 10:28:34 | epoch:  194/200, training time: 17.2s, inference time: 3.5s
+train mse loss: 3.0160, val mse loss: 5.5799, val mae loss: 0.9580, val rmse loss: 2.3393
+Training batch: 0 	 in epoch194 	 batch mse loss:0.0045
+2022-07-09 10:28:54 | epoch:  195/200, training time: 16.7s, inference time: 3.5s
+train mse loss: 3.0390, val mse loss: 5.7918, val mae loss: 0.9664, val rmse loss: 2.3626
+Training batch: 0 	 in epoch195 	 batch mse loss:0.0044
+2022-07-09 10:29:14 | epoch:  196/200, training time: 16.7s, inference time: 3.4s
+train mse loss: 3.0185, val mse loss: 5.5416, val mae loss: 0.9596, val rmse loss: 2.2921
+Training batch: 0 	 in epoch196 	 batch mse loss:0.0050
+2022-07-09 10:29:34 | epoch:  197/200, training time: 16.2s, inference time: 3.3s
+train mse loss: 3.0185, val mse loss: 5.7826, val mae loss: 0.9723, val rmse loss: 2.3763
+Training batch: 0 	 in epoch197 	 batch mse loss:0.0052
+2022-07-09 10:29:53 | epoch:  198/200, training time: 16.3s, inference time: 3.6s
+train mse loss: 3.0243, val mse loss: 5.6401, val mae loss: 0.9632, val rmse loss: 2.3399
+Training batch: 0 	 in epoch198 	 batch mse loss:0.0053
+2022-07-09 10:30:15 | epoch:  199/200, training time: 17.9s, inference time: 3.3s
+train mse loss: 3.0132, val mse loss: 5.6518, val mae loss: 0.9600, val rmse loss: 2.3446
+Training batch: 0 	 in epoch199 	 batch mse loss:0.0046
+2022-07-09 10:30:35 | epoch:  200/200, training time: 16.8s, inference time: 3.5s
+train mse loss: 3.0265, val mse loss: 5.6356, val mae loss: 0.9535, val rmse loss: 2.3460
+当前工作目录： /home/hushuwang/mahua
+batch_size=40, config_file='./config.ini', cuda=True, decay_epoch=20, epoch=200, log_file='./ha', lr=0.0001, model_file='./data/model.pkl', model_name='HA', seed=72, weight_decay=0.0
+Traceback (most recent call last):
+  File "train.py", line 45, in <module>
+    log_string(log, config.items(args.model_name))
+  File "/home/hushuwang/mahua/utils.py", line 2, in log_string
+    log.write(string + "\n")
+TypeError: can only concatenate list (not "str") to list
